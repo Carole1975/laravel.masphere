@@ -6,12 +6,9 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 // use App\User;
 
-class Family extends Model
+class Annonce extends Model
 {
-    public function user()
-     {
-         return $this->hasOne('App\User');
-     }
+	
 }
 
 x
