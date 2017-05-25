@@ -18,7 +18,7 @@ class AnnoncesRolesTableSeeder extends Seeder
     	DB::table('annonces_role')->insert([
     		'user_id' => 3,
     		'annonce_id' => 3
-    		]);
+    		]);			
     	DB::table('annonces_role')->insert([
     		'user_id' => 2,
     		'annonce_id' => 4

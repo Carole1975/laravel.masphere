@@ -24,10 +24,11 @@ class ProController extends Controller
      */
     public function index()
     {
-        if (Auth::User()->profile=='2') {
+        return view('pro');
+        /*if (Auth::User()->profile=='2') {
             return view('pro');
         } else {
             return Redirect()->route('family');
-        }
+        }*/
     }
 }

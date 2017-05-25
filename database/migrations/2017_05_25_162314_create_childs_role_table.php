@@ -13,8 +13,13 @@ class CreateChildsRoleTable extends Migration
      */
     public function up()
     {
-        Schema::table('childs_role', function (Blueprint $table) {
-            //
+        Schema::create('childs_role', function (Blueprint $table) {
+            $table->increments('role_id');
+            $table->integer('childs_id');
+            $table->integer('users_id');
+            //$table->foreign('childs_id')->references('id')->on('child');
+            //$table->foreign('users_id')->references('id')->on('users');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +30,6 @@ class CreateChildsRoleTable extends Migration
      */
     public function down()
     {
-        Schema::table('childs_role', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('childs_role');
     }
 }
