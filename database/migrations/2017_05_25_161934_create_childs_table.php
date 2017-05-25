@@ -15,7 +15,8 @@ class CreateChildsTable extends Migration
     {
         Schema::create('childs', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('age');
+            $table->integer('age');
+            $table->string('name');
 
         });
     }
@@ -28,6 +29,6 @@ class CreateChildsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('childs'); 
-        
+
     }
 }

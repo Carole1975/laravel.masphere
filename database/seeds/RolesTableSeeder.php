@@ -13,12 +13,14 @@ class RolesTableSeeder extends Seeder
     {
         DB::table('roles')->insert([
             'name' => 'famille'
-        ]);
+            ]);
         DB::table('roles')->insert([
             'name' => 'pro'
-        ]);
+            ]);
         DB::table('roles')->insert([
             'name' => 'admin'
-        ]);
+            ]);
     }
 }
+
+//id implicite en 1 b2 3 parce que table id en incrément elle rmpli toute seule
