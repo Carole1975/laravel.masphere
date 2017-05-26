@@ -20,3 +20,6 @@ Auth::routes();
 Route::get('/family', 'FamilyController@index')->name('family');
 Route::get('/pro', 'ProController@index')->name('pro');
 Route::get('/', 'HomeController@index')->name('home');
+
+Route::get('/test/annonces', 'TestController@testAnnonces');
+Route::get('/test/users', 'TestController@testUsers');
