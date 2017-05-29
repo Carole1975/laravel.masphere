@@ -9,6 +9,7 @@
 
                 <div class="panel-body">
                     You are logged in as pro!
+                    hello
                 </div>
             </div>
         </div>
