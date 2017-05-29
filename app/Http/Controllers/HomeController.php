@@ -26,7 +26,7 @@ class HomeController extends Controller
     {
         if (Auth::User()->name=='famille1') {
             return Redirect()->route('family');
-        } else if (Auth::User()->name=='pro1') {
+        } elseif (Auth::User()->name=='pro1') {
             return Redirect()->route('pro');
         } else {
             return view('welcome');

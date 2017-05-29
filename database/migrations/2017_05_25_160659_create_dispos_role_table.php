@@ -14,10 +14,11 @@ class CreateDisposRoleTable extends Migration
     public function up()
     {
         Schema::create('dispos_role', function (Blueprint $table) {
-            $table->increments('role_id');
+            $table->increments('id');
+            $table->integer('role_id');
             $table->integer('dispo_id');
             $table->integer('user_id');
-            //$table->foreign('dispo_id')->references('id')->on('dispos');
+            // $table->foreign('dispo_id')->references('id')->on('dispos');
             //$table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
@@ -29,7 +30,6 @@ class CreateDisposRoleTable extends Migration
      * @return void
      */
     public function down()
-
     {
         Schema::dropIfExists('dispos_role');
     }
