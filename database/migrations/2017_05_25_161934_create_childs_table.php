@@ -17,7 +17,6 @@ class CreateChildsTable extends Migration
             $table->increments('id');
             $table->integer('age');
             $table->string('name');
-
         });
     }
 
@@ -28,7 +27,6 @@ class CreateChildsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('childs'); 
-
+        Schema::dropIfExists('childs');
     }
 }
