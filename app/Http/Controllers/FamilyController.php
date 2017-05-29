@@ -22,13 +22,10 @@ class FamilyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function home(Request $request)
     {
-        // return view('family');
-        if (Auth::User()->profile=='1') {
-            return view('family');
-        } else {
-            return Redirect()->route('pro');
-        }
-    }
+     $annonces = $request->user()->annonces;
+     return view('family', ['annonces'=>$annonces]);
+
+ }
 }

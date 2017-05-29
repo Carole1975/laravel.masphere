@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-    'name', 'email', 'password', 'profile',
+    'name', 'email', 'password',
     ];
 
     /**
@@ -27,8 +27,40 @@ class User extends Authenticatable
     'password', 'remember_token',
     ];
 
-    public function roles()
+    /*public function roles()
     {
-        return $this->belongsToMany('App\Role', 'role_users');
+        return $this->belongsToMany('\App\Role');
+    }*/
+
+    public function annonces()
+    {
+        return $this->belongsToMany('\App\Annonce');
     }
+
+    /*public function isAdmin(){
+        $isAdmin = $this->belongsToMany('\App\Role')->where('role', '=', 'admin')->get()->count() == 1 ? true: false;
+        return $isAdmin;
+    }
+
+    public function isFamille(){
+        $isFamille = $this->belongsToMany('\App\Role')->where('role', '=', 'famille')->get()->count() == 1 ? true: false;
+        return $isFamille;
+    }
+
+    public function isPro(){
+        $isPro = $this->belongsToMany('\App\Role')->where('role', '=', 'pro')->get()->count() == 1 ? true: false;
+        return $isPro;
+    }
+
+    public function getHomePageRoute(){
+        if ($this->isAdmin()) {
+            return 'home';
+        }
+        if ($this->isFamille()) {
+            return 'homeFamille';
+        }
+        if ($this->isPro()) {
+            return 'homePro';
+        }
+    }*/
 }
