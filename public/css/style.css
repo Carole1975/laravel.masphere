@@ -121,3 +121,87 @@ input:-webkit-autofill:focus {
 a>.btn-link {
     color: white;
 }
+
+.dashboard {
+    height: 100%;
+}
+
+.container-haut {
+    display:flex;
+    /*background: black;*/
+    /*opacity: .7;*/
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    height: 7vh;
+    color: white;
+    justify-content: space-between;
+    z-index: 200;
+}
+
+.search-button {
+    background: black;
+    opacity: .7;
+    display: flex;
+    justify-content: center;
+    margin: 0px;
+    width: 49.8%;
+    align-items: center;
+
+}
+
+.search-button>p {
+    margin: 0px;
+}
+
+.dashboard-button {
+    background: black;
+    opacity: .7;
+    display: flex;
+    margin: 0px;
+    justify-content: center;
+    align-items: center;
+    width: 49.8%;
+}
+
+.card {
+    background: white;
+    border: none;
+    margin-bottom: 10px;
+    /*box-shadow: 0px 3px 10px 1px black;*/
+}
+
+.dashboard-button>p {
+    margin: 0px;
+    font-weight: bold;
+}
+
+.acceptornot {
+    display: flex;
+    justify-content: space-between;
+}
+
+.accept {
+    /*background: #007f00;*/
+    background: none;
+    color: green;
+    width: 49.5%;
+    font-size: 16px;
+}
+
+.refuse {
+    /*background: #ff3232;*/
+    background: none;
+    color: red;
+    font-size: 16px;
+    width: 49.5%;
+}
+
+.card {
+    padding: 10px;
+}
+
+h3.card-title {
+    margin-top: 0px;
+    padding-top: 5px;
+}

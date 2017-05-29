@@ -24,7 +24,7 @@ class FamilyController extends Controller
      */
     public function index()
     {
-        return view('family');
+        // return view('family');
         if (Auth::User()->profile=='1') {
             return view('family');
         } else {
