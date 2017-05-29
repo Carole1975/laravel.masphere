@@ -17,7 +17,6 @@ class CreateChildsTable extends Migration
             $table->increments('id');
             $table->integer('age');
             $table->string('name');
-
         });
     }
 

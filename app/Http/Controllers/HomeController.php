@@ -24,6 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        // return Auth::User()->email;
         if (Auth::User()->name=='famille1') {
             return Redirect()->route('family');
         } else if (Auth::User()->name=='pro1') {

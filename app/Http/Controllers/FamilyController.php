@@ -25,10 +25,10 @@ class FamilyController extends Controller
     public function index()
     {
         return view('family');
-        /*if (Auth::User()->profile=='1') {
+        if (Auth::User()->profile=='1') {
             return view('family');
         } else {
             return Redirect()->route('pro');
-        }*/
+        }
     }
 }
