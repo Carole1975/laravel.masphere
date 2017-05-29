@@ -66,7 +66,7 @@
                             <div class="col-md-6">
                                 <!--<input id="profile" type="text" class="form-control" name="profile" required>-->
 
-                                <select name="profile" id="profile" class="form-control selecter"required>-->
+                                <select name="profile" id="profile" class="form-control" required>-->
                                     <option disabled selected value> -- select an option -- </option>
                                     <option value="1">Famille</option>
                                     <option value="2">Professionnel de la garde</option>-->
