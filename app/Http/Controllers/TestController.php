@@ -1,52 +1,39 @@
+
 <?php
 
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Model\Annonce;
+use Illuminate\Support\Facades\DB;
 use App\User;
 
 class TestController extends Controller
 {
+    public function users()
+    {
+        $users = DB::table('users')->get();
+        var_dump($users);
+
+        $roles = DB::table('roles')->get();
+        var_dump($roles);
+
+        $usersRoles = DB::table('role_user')->get();
+        var_dump($usersRoles);
+
+        //return view('user.index', ['users' => $users]);
+    }
+
+    public function testUserRole(){
+        var_dump(\App\User::find(1)->isAdmin());
+        var_dump(\App\User::find(2)->isAdmin());
+        var_dump(\App\User::find(3)->isAdmin());
+    }
+
     public function testAnnonces(){
-    	// lire les users
-    	$annonces = Annonce::all();
-    	foreach ($annonces as $key => $annonce) {
-    		var_dump($annonce->text);
-    	}
-		
-
-    	//récupérer les annonce d'un user
-    	/*$annonces = App\Annonce::where('active', 1)
-               ->orderBy('name', 'desc')
-               ->take(10)
-               ->get();
-        var_dump($annonces);*/
+        $user = User::find(2);
+        foreach ($user->annonces as $annonce) {
+            var_dump($annonce->text);
+        }
     }
 
-    public function testUsers(){
-    	
-    	// lire tous les users
-		echo "<b>Lire tous les users :<br/></b>";
-    	$users = User::all();
-    	foreach ($users as $key => $user) {
-    		echo $user->name." / ".$user->email."<br/>";
-    	}
-
-    	//récupérer le user famille1
-    	echo "<b><br/>Récupérer le user dont le nom est famille1 :<br/></b>";
-    	$users = User::where('name', '=', 'famille1')->get();
-        foreach ($users as $key => $user) {
-    		echo $user->name." / ".$user->email."<br/>";
-    	}
-
-        //récupérer les users dont le nom commence par famille
-        echo "<b><br/>Récupérer les users dont le nom commence par famille :<br/></b>";
-    	$users = User::where('name', 'like', 'famille%')->get();
-        //var_dump($user);
-        foreach ($users as $key => $user) {
-    		echo $user->name." / ".$user->email."<br/>";
-    	}
-		
-    }
 }

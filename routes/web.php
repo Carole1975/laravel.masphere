@@ -12,15 +12,20 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	return view('welcome');
 });
 
 Auth::routes();
 
-Route::get('/family', 'FamilyController@index')->name('family');
+Route::get('/family', 'FamilyController@home')->name('family');
 Route::get('/pro', 'ProController@index')->name('pro');
 Route::get('/pro/search', 'ProController@search')->name('prosearch');
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/annonces', 'AnnoncesController@getAnnonces');
 Route::get('/test/users', 'TestController@testUsers');
+//Route::get('/test/usersRole', 'TestController@testUserRole');
+Route::get('/test/anoonces', 'TestController@testAnnonces');
+
+Route::post('/annonces/create', 'AnnonceController@createAnnonce')->name('createAnnonce');
+

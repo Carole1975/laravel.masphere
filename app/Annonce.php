@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Annonce extends Model
 {
-	
+	//declarer une relation inverse voir doc eloquent relations
 }
