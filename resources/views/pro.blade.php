@@ -1,13 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container-haut">
+<div class="container-bottom">
     <div class="search-button">
         <!--<p>Chercher</p>-->
-        <i class="fa fa-search fa-2x" aria-hidden="true"></i>
+        <a href="/pro/search">
+            <i class="fa fa-search fa-2x" aria-hidden="true"></i>
+        </a>
     </div>
     <div class="dashboard-button">
-        <p>Dashboard</p>
+        <a href="/pro">Dashboard</a>
     </div>
 </div>
 <div class="container dashboard">

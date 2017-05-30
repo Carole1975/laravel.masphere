@@ -54,6 +54,12 @@ label {
     font-weight: bold;
 }
 
+.navbar {
+    position: fixed;
+    width: 100%;
+    margin-bottom: 100px;
+}
+
 a.navbar-brand {
     padding: 7px 2px 2px 7px;
     width: 50%;
@@ -126,7 +132,7 @@ a>.btn-link {
     height: 100%;
 }
 
-.container-haut {
+.container-bottom {
     display:flex;
     /*background: black;*/
     /*opacity: .7;*/
@@ -188,6 +194,13 @@ a>.btn-link {
     width: 49.5%;
     font-size: 16px;
 }
+.choisir {
+    /*background: #007f00;*/
+    background: none;
+    color: green;
+    width: 100%;
+    font-size: 16px;
+}
 
 .refuse {
     /*background: #ff3232;*/
@@ -204,4 +217,28 @@ a>.btn-link {
 h3.card-title {
     margin-top: 0px;
     padding-top: 5px;
+}
+
+.rechercheinput {
+    width: 100%;
+    border: 1px solid grey;
+    box-shadow: 0px;
+}
+
+p {
+    font-size: 20px;
+}
+
+.dashboard-button>a {
+    font-size: 20px;
+    color: white;
+}
+
+.dashboard-button>a:visited {
+    font-size: 20px;
+    color: white;
+}
+
+.acceptornot>a {
+    font-size: 16px;
 }

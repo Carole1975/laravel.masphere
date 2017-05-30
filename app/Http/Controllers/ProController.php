@@ -31,4 +31,13 @@ class ProController extends Controller
             return Redirect()->route('family');
         }
     }
+    public function search()
+    {
+        // return view('pro');
+        if (Auth::User()->profile=='2') {
+            return view('prosearch');
+        } else {
+            return Redirect()->route('family');
+        }
+    }
 }
