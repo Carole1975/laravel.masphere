@@ -19,37 +19,37 @@
                 <div class="panel-heading">Dashboard Family</div>
 
                 <div class="panel-body">
-                    You are logged in as Family!
+                    You are logged in as Family! and you'r searching
                 </div> 
                 <div>
-                    <h2>Mes annonces</h2>    
-                    <ul>
-                        @foreach ($annonces as $annonce)
-                        <p>{{ $annonce->text }}</p>
-                        @endforeach
-                    </ul>
-                </div>
-                <div>
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('createAnnonce') }}">
+                    <form class="form-horizontal" role="form" method="" action="{{ route('familysearch') }}">
                         {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('annoncetext') ? ' has-error' : '' }}">
-                            <label for="annoncetext" class="col-md-4 control-label">Text</label>
+                        <div class="form-group{{ $errors->has('dispotext') ? ' has-error' : '' }}">
+                            <label for="dispotext" class="col-md-4 control-label">Text</label>
 
                             <div class="col-md-6">
-                                <input id="annoncetext" type="text" class="form-control" name="annoncetext" value="{{ old('annoncetext') }}" required autofocus>
+                                <input id="dispotext" type="text" class="form-control" name="dispotext" value="{{ old('dispotext') }}" required autofocus>
 
-                                @if ($errors->has('annoncetext'))
+                                @if ($errors->has('dispotext'))
                                 <span class="help-block">
-                                    <strong>{{ $errors->first('annoncetext') }}</strong>
+                                    <strong>{{ $errors->first('dispotext') }}</strong>
                                 </span>
                                 @endif
                             </div>
                             <button type="submit" class="btn btn-primary">
-                                nouvelle annonce
+                                trouver un pro
                             </button>
                         </div>
                     </form>
+                </div>
+                <div>
+                    <h2>les pros et tout</h2>    
+                    <ul>
+                        @foreach ($dispos as $dispo)
+                        <p>{{ $dispo->debut_dispo }}</p>
+                        @endforeach
+                    </ul>
                 </div>
 
             </div>

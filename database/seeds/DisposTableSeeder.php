@@ -37,7 +37,7 @@ class DisposTableSeeder extends Seeder
     		'debut_dispo' => ' 2017-07-21',
             'debut_heure' => '15:02:00',
             'duree'=> 4,
-            'commentaire'=> 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt, quis!',
+            'commentaire'=> 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus, minima.',
             'capacitegarde_max'=> 4,
     		]);
     }

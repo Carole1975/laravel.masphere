@@ -40,4 +40,5 @@ Route::group(['middleware'=>'pro'], function(){
 
 Route::group(['middleware'=>'fam'], function(){
 	Route::get('/family', 'FamilyController@home')->name('family');
+	Route::get('/family/search', 'FamilyController@search')->name('familysearch');
 });
