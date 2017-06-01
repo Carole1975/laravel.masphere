@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRoles extends Migration
+class CreateDisposUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,16 @@ class CreateRoles extends Migration
      */
     public function up()
     {
-        Schema::create('roles', function (Blueprint $table) {
+        Schema::create('dispos_user', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('slug');
+            // $table->integer('role_id');
+            $table->integer('dispo_id');
+            $table->integer('user_id');
+            // $table->foreign('dispo_id')->references('id')->on('dispos');
+            //$table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
-
 
     /**
      * Reverse the migrations.
@@ -29,6 +31,6 @@ class CreateRoles extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('roles');
+        Schema::dropIfExists('dispos_user');
     }
 }

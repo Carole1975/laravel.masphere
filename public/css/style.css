@@ -41,9 +41,11 @@ body:before {
 }
 
 label {
-    color: white;
+    color: black;
     font-weight: bold;
 }
+
+
 
 .form-control {
     border-radius: 0px;
@@ -242,3 +244,9 @@ p {
 .acceptornot>a {
     font-size: 16px;
 }
+
+.form-control {
+    border: 1px grey solid;
+      /*width: auto;*/
+}
+

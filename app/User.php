@@ -37,6 +37,16 @@ class User extends Authenticatable
         return $this->belongsToMany('\App\Annonce');
     }
 
+    public function roles()
+    {
+        return $this->belongsToMany('App\Role');
+    }
+
+    public function dispos()
+    {
+        return $this->belongsToMany('App\Dispo');
+    }
+
     /*public function isAdmin(){
         $isAdmin = $this->belongsToMany('\App\Role')->where('role', '=', 'admin')->get()->count() == 1 ? true: false;
         return $isAdmin;

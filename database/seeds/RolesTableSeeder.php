@@ -14,15 +14,15 @@ class RolesTableSeeder extends Seeder
 
         DB::table('roles')->insert([
             'name' => 'famille',
-            'role_id' => '1'
+            'slug' => 'fam',
             ]);
         DB::table('roles')->insert([
             'name' => 'pro',
-            'role_id' => '2'
+            'slug' => 'pro',
             ]);
         DB::table('roles')->insert([
             'name' => 'admin',
-            'role_id' => '3'
+            'slug' => 'admin',
             ]);
     }
 }
