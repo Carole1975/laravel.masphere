@@ -16,7 +16,10 @@ class CreateDisposTable extends Migration
         Schema::create('dispos', function (Blueprint $table) {
             $table->increments('id');
             $table->dateTime('debut_dispo');
-            $table->integer('duree_dispo');
+            $table->string('debut_heure');
+            $table->string('duree');
+            $table->text('commentaire');
+            $table->integer('capacitegarde_max');
             $table->timestamps();
         });
     }
@@ -28,10 +31,6 @@ class CreateDisposTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('dispos'); 
-        
-        
+        Schema::dropIfExists('dispos');
     }
 }
-
-

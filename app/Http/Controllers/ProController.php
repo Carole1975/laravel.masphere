@@ -40,4 +40,13 @@ class ProController extends Controller
             return Redirect()->route('family');
         }
     }
+    public function dispoform()
+    {
+        // return view('pro');
+        if (Auth::User()->profile=='2') {
+            return view('dispoform');
+        } else {
+            return Redirect()->route('family');
+        }
+    }
 }

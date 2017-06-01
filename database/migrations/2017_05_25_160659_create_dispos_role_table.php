@@ -15,7 +15,7 @@ class CreateDisposRoleTable extends Migration
     {
         Schema::create('dispos_role', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('role_id');
+            // $table->integer('role_id');
             $table->integer('dispo_id');
             $table->integer('user_id');
             // $table->foreign('dispo_id')->references('id')->on('dispos');
