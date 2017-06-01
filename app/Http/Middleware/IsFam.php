@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class IsPro
+class IsFam
 {
     /**
      * Handle an incoming request.
@@ -16,8 +16,8 @@ class IsPro
      */
     public function handle($request, Closure $next)
     {
-        if(Auth::user()->roles->implode('slug') !== 'pro'){
-            return redirect('/family');
+        if(Auth::user()->roles->implode('slug') !== 'fam'){
+            return redirect('/pro');
         }
         return $next($request);
     }

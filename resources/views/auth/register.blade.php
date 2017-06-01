@@ -68,8 +68,8 @@
 
                                 <select name="profile" id="profile" class="form-control" required>-->
                                     <option disabled selected value> -- select an option -- </option>
-                                    <option value="1">Famille</option>
-                                    <option value="2">Professionnel de la garde</option>-->
+                                    <option value="fam">Famille</option>
+                                    <option value="pro">Professionnel de la garde</option>-->
                                 </select>
                             </div>
                         </div>

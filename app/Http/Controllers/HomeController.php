@@ -24,12 +24,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if (Auth::User()->profile=='1') {
-            return Redirect()->route('family');
-        } elseif (Auth::User()->profile=='2') {
-            return Redirect()->route('pro');
-        } else {
-            return view('welcome');
-        }
+        return view('welcome');
+        // return Redirect()->route('home');
+        // if (Auth::User()->profile=='1') {
+        //     return Redirect()->route('family');
+        // } elseif (Auth::User()->profile=='2') {
+        //     return Redirect()->route('pro');
+        // } else {
+        //     return view('welcome');
+        // }
     }
 }

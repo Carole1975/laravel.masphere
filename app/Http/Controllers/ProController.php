@@ -24,20 +24,20 @@ class ProController extends Controller
      */
     public function index()
     {
-        // return view('pro');
-        if (Auth::User()->profile=='2') {
-            return view('pro');
-        } else {
-            return Redirect()->route('family');
-        }
+        return view('pro');
+        // if (Auth::User()->profile=='2') {
+        //     return view('pro');
+        // } else {
+        //     return Redirect()->route('family');
+        // }
     }
     public function search()
     {
-        // return view('pro');
-        if (Auth::User()->profile=='2') {
-            return view('prosearch');
-        } else {
-            return Redirect()->route('family');
-        }
+        return view('pro');
+        // if (Auth::User()->profile=='2') {
+        //     return view('prosearch');
+        // } else {
+        //     return Redirect()->route('family');
+        // }
     }
 }

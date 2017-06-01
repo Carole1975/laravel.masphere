@@ -66,13 +66,16 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
+            {{ Auth::user()->roles->implode('role_id') }}
             @if (Route::has('login'))
                 <div class="top-right links">
                     @if (Auth::check())
-                        @if (Auth::User()->profile=='1')
+                        @if (Auth::User()->roles->implode('slug')=='fam')
                             <a href="{{ url('/family') }}">Family</a>
-                        @else
+                        @elseif (Auth::User()->roles->implode('slug')=='pro')
                             <a href="{{ url('/pro') }}">Pro</a>
+                        @else
+                            <a href="{{ url('/pro') }}">Admin</a>
                         @endif
                     @else
                         <a href="{{ url('/login') }}">Login</a>
