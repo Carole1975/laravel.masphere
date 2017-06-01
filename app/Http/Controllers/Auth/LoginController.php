@@ -22,12 +22,12 @@ class LoginController extends Controller
 
     protected function authenticated(Request $request, $user)
     {
-        return Redirect()->route('family');
-        /*if (Auth::User()->profile=='1') {
+        //return Redirect()->route('family');
+        if (Auth::User()->profile=='1') {
             return Redirect()->route('family');
         } else {
             return Redirect()->route('pro');
-        }*/
+        }
     }
 
     use AuthenticatesUsers;

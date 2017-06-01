@@ -37,7 +37,7 @@ class User extends Authenticatable
         return $this->belongsToMany('\App\Annonce');
     }
 
-    /*public function isAdmin(){
+    public function isAdmin(){
         $isAdmin = $this->belongsToMany('\App\Role')->where('role', '=', 'admin')->get()->count() == 1 ? true: false;
         return $isAdmin;
     }
@@ -62,5 +62,5 @@ class User extends Authenticatable
         if ($this->isPro()) {
             return 'homePro';
         }
-    }*/
+    }
 }

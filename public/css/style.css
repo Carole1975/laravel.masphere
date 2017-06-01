@@ -45,6 +45,10 @@ label {
     font-weight: bold;
 }
 
+form label {
+    color: black;
+    font-weight: bold;
+}
 .form-control {
     border-radius: 0px;
 }

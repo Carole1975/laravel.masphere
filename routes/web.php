@@ -20,12 +20,18 @@ Auth::routes();
 Route::get('/family', 'FamilyController@home')->name('family');
 Route::get('/pro', 'ProController@index')->name('pro');
 Route::get('/pro/search', 'ProController@search')->name('prosearch');
+Route::post('/pro/search', 'ProController@search');
+Route::get('/pro/annonces/choose/{id}', 'ProController@chooseAnnonce');
+Route::get('/pro/annonces/unchoose/{id}', 'ProController@unchooseAnnonce');
+
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/annonces', 'AnnoncesController@getAnnonces');
 Route::get('/test/users', 'TestController@testUsers');
 //Route::get('/test/usersRole', 'TestController@testUserRole');
-Route::get('/test/anoonces', 'TestController@testAnnonces');
+Route::get('/test/anonces', 'TestController@testAnnonces');
 
 Route::post('/annonces/create', 'AnnonceController@createAnnonce')->name('createAnnonce');
+
+
 
