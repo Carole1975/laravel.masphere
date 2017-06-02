@@ -61,7 +61,7 @@
                 </div>
                 <div>
                     <h2>les pros et tout</h2>
-                    <h2>{{ $debut }}</h2>
+                    {{-- <h2>{{ $debut }}</h2> --}}
                     <ul>
                         @foreach ($dispos as $dispo)
                         <div class="card">
