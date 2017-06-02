@@ -16,7 +16,7 @@ class IsPro
      */
     public function handle($request, Closure $next)
     {
-        if(Auth::user()->roles->implode('slug') !== 'pro'){
+        if (Auth::user()->roles->implode('slug') !== 'pro') {
             return redirect('/family');
         }
         return $next($request);

@@ -31,10 +31,6 @@ class CreateDisposTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('dispos'); 
-        
-        
+        Schema::dropIfExists('dispos');
     }
 }
-
-

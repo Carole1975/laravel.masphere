@@ -41,7 +41,7 @@ body:before {
 }
 
 label {
-    color: white;
+    color: black;
     font-weight: bold;
 }
 
@@ -49,6 +49,7 @@ form label {
     color: black;
     font-weight: bold;
 }
+
 .form-control {
     border-radius: 0px;
 }
@@ -138,40 +139,67 @@ a>.btn-link {
 
 .container-bottom {
     display:flex;
-    /*background: black;*/
-    /*opacity: .7;*/
+    background: black;
+    opacity: .7;
     position: fixed;
     bottom: 0;
     width: 100vw;
-    height: 7vh;
+    height: 8vh;
     color: white;
     justify-content: space-between;
     z-index: 200;
 }
 
+.linkmenu {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.textmenu{
+    color: white;
+    font-size: 9px;
+    justify-content: center;
+    margin-bottom: 0;
+}
+
 .search-button {
-    background: black;
-    opacity: .7;
+    /*background: black;*/
+    /*opacity: .7;*/
     display: flex;
     justify-content: center;
     margin: 0px;
-    width: 49.8%;
+    width: 33%;
     align-items: center;
 
 }
 
-.search-button>p {
-    margin: 0px;
+.linkmenu>i{
+    color: #FE938C;
 }
+
+/*.search-button>p {
+    margin: 0px;
+}*/
 
 .dashboard-button {
-    background: black;
-    opacity: .7;
+    /*background: black;*/
+    /*opacity: .7;*/
     display: flex;
     margin: 0px;
     justify-content: center;
     align-items: center;
-    width: 49.8%;
+    width: 33%;
+}
+
+.dispo-page {
+    /*background: black;
+    opacity: .7;*/
+    display: flex;
+    margin: 0px;
+    justify-content: center;
+    align-items: center;
+    width: 33%;
 }
 
 .card {
@@ -181,10 +209,10 @@ a>.btn-link {
     /*box-shadow: 0px 3px 10px 1px black;*/
 }
 
-.dashboard-button>p {
+/*.dashboard-button>p {
     margin: 0px;
     font-weight: bold;
-}
+}*/
 
 .acceptornot {
     display: flex;
@@ -230,17 +258,17 @@ h3.card-title {
 }
 
 p {
-    font-size: 20px;
+    font-size: 16px;
 }
 
-.dashboard-button>a {
-    font-size: 20px;
-    color: white;
+
+.acceptornot>a {
+    font-size: 16px;
 }
 
-.dashboard-button>a:visited {
-    font-size: 20px;
-    color: white;
+.form-control {
+    border: 1px grey solid;
+      /*width: auto;*/
 }
 
 .acceptornot>a {
@@ -254,4 +282,9 @@ p {
     font-size: 1.4em;
     font-weight: bold;
     height: 100%;
+}
+
+.fa::before {
+    display: flex;
+    justify-content: center;
 }

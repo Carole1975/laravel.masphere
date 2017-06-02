@@ -27,11 +27,6 @@ class User extends Authenticatable
     'password', 'remember_token',
     ];
 
-    /*public function roles()
-    {
-        return $this->belongsToMany('\App\Role');
-    }*/
-
     public function annonces()
     {
         return $this->belongsToMany('\App\Annonce');
@@ -41,4 +36,10 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Role');
     }
+
+    public function dispos()
+    {
+        return $this->belongsToMany('App\Dispo');
+    }
+
 }
