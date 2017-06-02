@@ -3,24 +3,31 @@
 @section('content')
 <div class="container-bottom">
     <div class="search-button">
-        <!--<p>Chercher</p>-->
         <a href="/pro/search">
             <i class="fa fa-search fa-2x" aria-hidden="true"></i>
         </a>
     </div>
     <div class="dashboard-button">
-        <a href="/pro">Dashboard</a>
+        <a href="/pro">
+            <i class="fa fa-list fa-2x" aria-hidden="true"></i>
+        </a>
+    </div>
+    <div class="dispo-page">
+        <a href="/pro/dispo">
+            <i class="fa fa-user fa-2x" aria-hidden="true"></i>
+        </a>
     </div>
 </div>
+
 
 <div class="container prosearch">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Toutes les annonces disponibles</div>
+                <div class="panel-heading">Ajouter une disponibilité</div>
                 <div class="card">
                     <div class="card-block">
-                        <h3 class="card-title">Filtres</h3>
+                        <h3 class="card-title">Disponibilité</h3>
 
                         <form class="form-horizontal" role="form" method="POST" action="{{ route('createDispo') }}">
                         {{ csrf_field() }}
@@ -83,12 +90,12 @@
                             <div class="form-group" id="commentaire">
                                 <label for="" class="col-md-4 control-label">Commentaire</label>
                                 <div class="col-md-10 col-md-offset-1 input">
-                                    <textarea rows="" cols="" type="text" id="commentaire" name="commentaire" class="col-md-12">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus rerum iste beatae, commodi corrupti cumque, magnam voluptatum voluptates atque, dolor culpa. Quis explicabo dolores saepe.</textarea>
+                                    <textarea type="text" id="commentaire" name="commentaire" class="col-md-12">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus rerum iste beatae, commodi corrupti cumque, magnam voluptatum voluptates atque, dolor culpa. Quis explicabo dolores saepe.</textarea>
                                     <!--<input class="rechercheinput" id="dureeheure" type="text" name="dureeheure">-->
                                 </div>
                             </div>
 
-                            <button type="submit" class="btn btn-primary attent">Mettre à jour vos critères de recherche</button>
+                            <button type="submit" class="btn btn-primary attent">Mettre à jour mes disponibilités</button>
 
                         </form>
 
@@ -98,6 +105,31 @@
         </div>
     </div>
 </div>
+
+
+<div class="container prodispos">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">Récapitulatif de mes disponibilités
+                </div>
+                @foreach ($disponibilites as $disponibilite)
+                    <div class="card">
+                        <div class="card-block" date-id="{{ $disponibilite->id }}">
+                            <h3 class="card-title">{{ $disponibilite->debut_dispo }}</h3>
+                            <p class="card-text">À {{ $disponibilite->debut_heure }}, pendant {{ $disponibilite->duree }} heure(s) pour {{ $disponibilite->capacitegarde_max }} enfant(s).</p>
+                            <p class="card-text CommentsDispos" id="CommentsDispos">Commentaires : {{ $disponibilite->commentaire }}</p>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
 
 
 @endsection

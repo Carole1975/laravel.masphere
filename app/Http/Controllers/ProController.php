@@ -36,17 +36,18 @@ class ProController extends Controller
     }
     public function search()
     {
-        return view('pro');
+        return view('prosearch');
         // if (Auth::User()->profile=='2') {
         //     return view('prosearch');
         // } else {
         //     return Redirect()->route('family');
         // }
     }
-    public function dispoform()
+    public function dispoform(Request $request)
     {
         // return view('pro');
-        return view('dispoform');
+        $disponibilites = $request->user()->dispos;
+        return view('dispoform', ['disponibilites'=>$disponibilites]);
     }
 
     public function createDispo(Request $request)

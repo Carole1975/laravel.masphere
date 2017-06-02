@@ -153,14 +153,14 @@ a>.btn-link {
     display: flex;
     justify-content: center;
     margin: 0px;
-    width: 49.8%;
+    width: 33%;
     align-items: center;
 
 }
 
-.search-button>p {
+/*.search-button>p {
     margin: 0px;
-}
+}*/
 
 .dashboard-button {
     background: black;
@@ -169,7 +169,17 @@ a>.btn-link {
     margin: 0px;
     justify-content: center;
     align-items: center;
-    width: 49.8%;
+    width: 33%;
+}
+
+.dispo-page {
+    background: black;
+    opacity: .7;
+    display: flex;
+    margin: 0px;
+    justify-content: center;
+    align-items: center;
+    width: 33%;
 }
 
 .card {
@@ -179,10 +189,10 @@ a>.btn-link {
     /*box-shadow: 0px 3px 10px 1px black;*/
 }
 
-.dashboard-button>p {
+/*.dashboard-button>p {
     margin: 0px;
     font-weight: bold;
-}
+}*/
 
 .acceptornot {
     display: flex;
@@ -231,15 +241,6 @@ p {
     font-size: 20px;
 }
 
-.dashboard-button>a {
-    font-size: 20px;
-    color: white;
-}
-
-.dashboard-button>a:visited {
-    font-size: 20px;
-    color: white;
-}
 
 .acceptornot>a {
     font-size: 16px;

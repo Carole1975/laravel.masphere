@@ -1,17 +1,25 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container-bottom">
     <div class="search-button">
-        <!--<p>Chercher</p>-->
         <a href="/pro/search">
             <i class="fa fa-search fa-2x" aria-hidden="true"></i>
         </a>
     </div>
     <div class="dashboard-button">
-        <a href="/pro">Dashboard</a>
+        <a href="/pro">
+            <i class="fa fa-list fa-2x" aria-hidden="true"></i>
+        </a>
+    </div>
+    <div class="dispo-page">
+        <a href="/pro/dispo">
+            <i class="fa fa-user fa-2x" aria-hidden="true"></i>
+        </a>
     </div>
 </div>
+
 <div class="container prosearch">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
