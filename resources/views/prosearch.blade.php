@@ -21,7 +21,7 @@
                     <div class="card-block">
                         <h3 class="card-title">Filtres</h3>
 
-                        <form class="form-horizontal" role="form" method="POST" action="{{ route('prosearch') }}">
+                        <form class="form-horizontal" role="form" method="POST" action="{{ route('prosearchpost') }}">
                             {{ csrf_field() }}
 
                             <div class="form-group{{ $errors->has('filtreNbEnfant') ? ' has-error' : '' }}">
@@ -64,7 +64,7 @@
                 @if (count($annonces) === 0)
                 <p class = 'messages'>Aucune annonce ne correspond à vos critères</p>
                 @else
-                <p class = 'messages'>{{ count($annonces) }} annonces correspondent à vos critères</p> 
+                <p class = 'messages'>{{ count($annonces) }} annonces correspondent à vos critères</p>
                 @endif
                 @foreach ($annonces as $annonce)
                 <div class="card">

@@ -19,15 +19,16 @@ Route::get('/', function () {
 
     Route::get('/pro/annonces/choose/{id}', 'ProController@chooseAnnonce');
     Route::get('/pro/annonces/unchoose/{id}', 'ProController@unchooseAnnonce');
+    Route::post('/pro/search/post', 'ProController@search')->name('prosearchpost');
     Route::get('/pro/search', 'ProController@search')->name('prosearch');
 
 Route::group(['middleware'=>'pro'], function () {
     Route::get('/pro', 'ProController@index')->name('pro');
 });
 
-Route::get('/annonces', 'AnnoncesController@getAnnonces');
-Route::get('/test/users', 'TestController@testUsers');
-Route::get('/test/annonces', 'TestController@testAnnonces');
+// Route::get('/annonces', 'AnnoncesController@getAnnonces');
+// Route::get('/test/users', 'TestController@testUsers');
+// Route::get('/test/annonces', 'TestController@testAnnonces');
 
 Route::group(['middleware'=>'fam'], function () {
     Route::get('/family', 'FamilyController@home')->name('family');
