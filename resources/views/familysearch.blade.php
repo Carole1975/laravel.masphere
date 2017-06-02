@@ -66,7 +66,7 @@
                         @foreach ($dispos as $dispo)
                         <div class="card">
                             <div class="card-block">
-                                <h3 class="card-title">{{ $dispo->debut_dispo }} à {{ $dispo->debut_heure }}</h3>
+                                <h3 class="card-title">le {{ date('Y-m-d',strtotime($dispo->debut_dispo)) }} à {{ $dispo->debut_heure }}</h3>
                                 <p class="card-text">pour {{ $dispo->capacitegarde_max }} enfant(s) max, pendant {{ $dispo->duree }}h.<br /> {{ $dispo->commentaire }}</p>
                             </div>
                         </div>
