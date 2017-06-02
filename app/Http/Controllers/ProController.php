@@ -38,7 +38,7 @@ class ProController extends Controller
     }
     public function search(Request $request)
     {
-
+        $request->flash();
         $filtreNbEnfant = $request->input('filtreNbEnfant');
         $filtreDureeMini = $request->input('filtreDureeMini');
         $filtreDureeMax = $request->input('filtreDureeMax');
@@ -52,7 +52,7 @@ class ProController extends Controller
         if(!is_null($filtreDureeMax)){
             $annonces = $annonces->where('duree', '<=', $filtreDureeMax);    
         }
-        
+
         //$annonces = $request->user()->annonces;
         return view('prosearch', ['annonces'=>$annonces]);
 
