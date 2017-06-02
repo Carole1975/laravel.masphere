@@ -136,20 +136,33 @@ a>.btn-link {
 
 .container-bottom {
     display:flex;
-    /*background: black;*/
-    /*opacity: .7;*/
+    background: black;
+    opacity: .7;
     position: fixed;
     bottom: 0;
     width: 100vw;
-    height: 7vh;
+    height: 8vh;
     color: white;
     justify-content: space-between;
     z-index: 200;
 }
 
+.linkmenu {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.textmenu{
+    color: white;
+    font-size: 9px;
+    justify-content: center;
+    margin-bottom: 0;
+}
+
 .search-button {
-    background: black;
-    opacity: .7;
+    /*background: black;*/
+    /*opacity: .7;*/
     display: flex;
     justify-content: center;
     margin: 0px;
@@ -158,13 +171,17 @@ a>.btn-link {
 
 }
 
+.linkmenu>i{
+    color: #FE938C;
+}
+
 /*.search-button>p {
     margin: 0px;
 }*/
 
 .dashboard-button {
-    background: black;
-    opacity: .7;
+    /*background: black;*/
+    /*opacity: .7;*/
     display: flex;
     margin: 0px;
     justify-content: center;
@@ -173,8 +190,8 @@ a>.btn-link {
 }
 
 .dispo-page {
-    background: black;
-    opacity: .7;
+    /*background: black;
+    opacity: .7;*/
     display: flex;
     margin: 0px;
     justify-content: center;
@@ -238,7 +255,7 @@ h3.card-title {
 }
 
 p {
-    font-size: 20px;
+    font-size: 16px;
 }
 
 
@@ -251,3 +268,7 @@ p {
       /*width: auto;*/
 }
 
+.fa::before {
+    display: flex;
+    justify-content: center;
+}

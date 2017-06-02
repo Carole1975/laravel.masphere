@@ -45,7 +45,6 @@ class ProController extends Controller
     }
     public function dispoform(Request $request)
     {
-        // return view('pro');
         $disponibilites = $request->user()->dispos;
         return view('dispoform', ['disponibilites'=>$disponibilites]);
     }
