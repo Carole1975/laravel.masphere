@@ -22,22 +22,44 @@ class ProController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('pro');
-        // if (Auth::User()->profile=='2') {
-        //     return view('pro');
-        // } else {
-        //     return Redirect()->route('family');
-        // }
+
+        $annonces = $request->user()->annonces;
+        return view('pro', ['annonces'=>$annonces]);
     }
-    public function search()
+
+    public function search(Request $request)
     {
-        return view('pro');
-        // if (Auth::User()->profile=='2') {
-        //     return view('prosearch');
-        // } else {
-        //     return Redirect()->route('family');
-        // }
+
+        $request->flash();
+        $filtreNbEnfant = $request->input('filtreNbEnfant');
+        $filtreDureeMini = $request->input('filtreDureeMini');
+        $filtreDureeMax = $request->input('filtreDureeMax');
+        $annonces = \App\Annonce::all();
+        if (!is_null($filtreNbEnfant)) {
+            $annonces = $annonces->where('nbrEnfant', '<=', $filtreNbEnfant);
+        }
+        if (!is_null($filtreDureeMini)) {
+            $annonces = $annonces->where('duree', '>=', $filtreDureeMini);
+        }
+        if (!is_null($filtreDureeMax)) {
+            $annonces = $annonces->where('duree', '<=', $filtreDureeMax);
+        }
+        //$annonces = $request->user()->annonces;
+        return view('prosearch', ['annonces'=>$annonces]);
+    }
+    public function chooseAnnonce(Request $request, $id)
+    {
+        //$request->user()->annonces()->sync([$id]);
+        $request->user()->annonces()->attach($id);
+        return redirect()->route('pro');
+    }
+
+    public function unchooseAnnonce(Request $request, $id)
+    {
+        //$request->user()->annonces()->sync([$id]);
+        $request->user()->annonces()->detach($id);
+        return redirect()->route('pro');
     }
 }

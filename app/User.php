@@ -41,32 +41,4 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Role');
     }
-
-    /*public function isAdmin(){
-        $isAdmin = $this->belongsToMany('\App\Role')->where('role', '=', 'admin')->get()->count() == 1 ? true: false;
-        return $isAdmin;
-    }
-
-    public function isFamille(){
-        $isFamille = $this->belongsToMany('\App\Role')->where('role', '=', 'famille')->get()->count() == 1 ? true: false;
-        return $isFamille;
-    }
-
-    public function isPro(){
-        $isPro = $this->belongsToMany('\App\Role')->where('role', '=', 'pro')->get()->count() == 1 ? true: false;
-        return $isPro;
-    }
-
-    public function getHomePageRoute(){
-        if ($this->isAdmin()) {
-            return 'home';
-        }
-        if ($this->isFamille()) {
-            return 'homeFamille';
-        }
-        if ($this->isPro()) {
-            return 'homePro';
-        }
-    }*/
-
 }

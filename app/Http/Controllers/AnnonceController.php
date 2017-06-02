@@ -16,12 +16,15 @@ class AnnonceController extends Controller
       return redirect()->route(Auth::user()->getHomePageRoute());
     }
     return $next($request);
-  });*/
+});*/
 }
 
 public function createAnnonce(Request $request){
 	$annonce = new Annonce;
-	$annonce->text = $request->input('annoncetext');
+	$annonce->debut = $request->input('annonceDebut');
+	$annonce->duree = $request->input('annonceDuree');
+	$annonce->nbrEnfant = $request->input('annonceNbrEnfant');
+	$annonce->gardeChezFamille = 1;
 	$user = $request->user();
 	$user->annonces()->save($annonce);
 	return redirect()->route('family');

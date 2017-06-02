@@ -10,7 +10,7 @@ body:before {
     -moz-background-size: cover; /* pour Firefox */
     -o-background-size: cover; /* pour Opera */
     background-size: cover; /* version standardisée */
-    }
+}
 
 .panel {
     background: transparent;
@@ -45,6 +45,10 @@ label {
     font-weight: bold;
 }
 
+form label {
+    color: black;
+    font-weight: bold;
+}
 .form-control {
     border-radius: 0px;
 }
@@ -241,4 +245,13 @@ p {
 
 .acceptornot>a {
     font-size: 16px;
+}
+.messages{
+    background: transparent;
+    border-radius: 0px;
+    border: none;
+    color: white;
+    font-size: 1.4em;
+    font-weight: bold;
+    height: 100%;
 }

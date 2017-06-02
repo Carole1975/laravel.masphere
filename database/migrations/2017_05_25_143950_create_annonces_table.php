@@ -15,7 +15,11 @@ class CreateAnnoncesTable extends Migration
     {
         Schema::create('annonces', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('text');
+            $table->dateTime('debut');
+            $table->smallInteger('duree');
+            $table->smallInteger('nbrEnfant');
+            $table->boolean('gardeChezFamille');
+
             $table->timestamps();
             //
         });
