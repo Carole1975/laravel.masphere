@@ -47,13 +47,22 @@
                     <h2>les pros et tout</h2>    
                     <ul>
                         @foreach ($dispos as $dispo)
+
+                        {{-- <div class="card">
+                            <div class="card-block">
+                                <h3 class="card-title">{{ $annonce->debut }}</h3>
+                                <p class="card-text">Pendant : {{ $annonce->duree }}h</p><p> {{ $annonce->nbrEnfant }} Enfant(s)</p>
+                            </div>
+                        </div> --}}
+
                         <div class="card">
                           <div class="card-block">
-                          <h4 class="card-title">{{ $dispo->debut_dispo }} à {{ $dispo->debut_heure }} pour {{ $dispo->capacitegarde_max }} enfant(s) max, pendant {{ $dispo->duree }}h</h4>
-                            {{-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> --}}
-                            <p class="card-text">
+                          <h3 class="card-title">{{ $dispo->debut_dispo }} à {{ $dispo->debut_heure }}</h3>
+                              {{-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> --}}
+                              <p class="card-text">
+                              pour {{ $dispo->capacitegarde_max }} enfant(s) max, pendant {{ $dispo->duree }}h.<br /> 
                                 {{ $dispo->commentaire }}</p>
-                                <a href="#" class="card-link">Pro link</a>
+                                {{-- <a href="#" class="card-link">Pro link</a> --}}
                             </div>
                         </div>
                         @endforeach
