@@ -25,15 +25,31 @@
                     <form class="form-horizontal" role="form" method="" action="{{ route('familysearch') }}">
                         {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('dispotext') ? ' has-error' : '' }}">
-                            <label for="dispotext" class="col-md-4 control-label">Text</label>
-
-                            <div class="col-md-6">
-                                <input id="dispotext" type="text" class="form-control" name="dispotext" value="{{ old('dispotext') }}" required autofocus>
-
-                                @if ($errors->has('dispotext'))
+                        <div class="form-group{{ $errors->has('debut_annee') ? ' has-error' : '' }}">
+                            <label for="debut_annee" class="col-md-4 control-label">debut de disponibilité du pro </label>
+                            <div class="col-md-2">
+                            <input id="debut_annee" type="text" class="form-control" name="debut_annee" value="{{ old('debut_annee') }}" placeholder="aaaa">
+                                @if ($errors->has('debut_annee'))
                                 <span class="help-block">
-                                    <strong>{{ $errors->first('dispotext') }}</strong>
+                                    <strong>{{ $errors->first('debut_annee') }}</strong>
+                                </span>
+                                @endif
+                            </div>
+
+                            <div class="col-md-2">
+                            <input id="debut_mois" type="text" class="form-control" name="debut_mois" value="{{ old('debut_mois') }}" placeholder="mm">
+                                @if ($errors->has('debut_mois'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('debut_mois') }}</strong>
+                                </span>
+                                @endif
+                            </div>
+
+                            <div class="col-md-2">
+                            <input id="debut_jour" type="text" class="form-control" name="debut_jour" value="{{ old('debut_jour') }}" placeholder="jj">
+                                @if ($errors->has('debut_jour'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('debut_jour') }}</strong>
                                 </span>
                                 @endif
                             </div>
@@ -44,25 +60,14 @@
                     </form>
                 </div>
                 <div>
-                    <h2>les pros et tout</h2>    
+                    <h2>les pros et tout</h2>
+                    <h2>{{ $debut }}</h2>
                     <ul>
                         @foreach ($dispos as $dispo)
-
-                        {{-- <div class="card">
-                            <div class="card-block">
-                                <h3 class="card-title">{{ $annonce->debut }}</h3>
-                                <p class="card-text">Pendant : {{ $annonce->duree }}h</p><p> {{ $annonce->nbrEnfant }} Enfant(s)</p>
-                            </div>
-                        </div> --}}
-
                         <div class="card">
-                          <div class="card-block">
-                          <h3 class="card-title">{{ $dispo->debut_dispo }} à {{ $dispo->debut_heure }}</h3>
-                              {{-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> --}}
-                              <p class="card-text">
-                              pour {{ $dispo->capacitegarde_max }} enfant(s) max, pendant {{ $dispo->duree }}h.<br /> 
-                                {{ $dispo->commentaire }}</p>
-                                {{-- <a href="#" class="card-link">Pro link</a> --}}
+                            <div class="card-block">
+                                <h3 class="card-title">{{ $dispo->debut_dispo }} à {{ $dispo->debut_heure }}</h3>
+                                <p class="card-text">pour {{ $dispo->capacitegarde_max }} enfant(s) max, pendant {{ $dispo->duree }}h.<br /> {{ $dispo->commentaire }}</p>
                             </div>
                         </div>
                         @endforeach

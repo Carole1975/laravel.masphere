@@ -24,18 +24,24 @@ class FamilyController extends Controller
      */
     public function home(Request $request)
     {
-       $annonces = $request->user()->annonces;
-       return view('family', ['annonces'=>$annonces]);
+        $annonces = $request->user()->annonces;
+        return view('family', ['annonces'=>$annonces]);
     }
 
     /**
-     * Show the application dashboard.
+     * Show the application search.
      *
      * @return \Illuminate\Http\Response
      */
     public function search(Request $request)
     {
-        $dispos = Dispo::all();
-        return view('familysearch', compact('dispos'));
+        $debut = date('Y-m-d H:i:s',strtotime($request->debut_annee.'-'.$request->debut_mois.'-'.$request->debut_jour));
+        if($request->has('debut_annee') && $request->has('debut_mois') && $request->has('debut_jour')){
+            $dispos = Dispo::all()->where('debut_dispo','=',$debut);
+            // ->where('debut_dispo', '=', $request->disposearch);
+        }else{
+            $dispos = Dispo::all();
+        }
+        return view('familysearch', ['dispos'=>$dispos, 'debut'=>$debut]);
     }
 }
