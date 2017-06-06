@@ -27,12 +27,16 @@ Route::group(['middleware'=>'pro'], function () {
 
     Route::post('/pro/createdispo', 'ProController@createDispo')->name('createDispo');
     Route::get('/pro/dispo', 'ProController@dispoform')->name('dispoform');
+
+    // Route::get('/statut/dispo/post2/{id}', 'StatutController@validationPro');
+    // Route::get('/statut/dispo/depost2/{id}', 'StatutController@unChoixFamille');
 });
 
 Route::group(['middleware'=>'fam'], function () {
     Route::get('/family', 'FamilyController@home')->name('family');
     Route::get('/family/search', 'FamilyController@search')->name('familysearch');
     Route::post('/annonces/create', 'AnnonceController@createAnnonce')->name('createAnnonce');
-    Route::get('/statut/dispo/confirm/{id}', 'DispoController@show')->name('dispotruck');
-    Route::get('/statut/dispo/post/{id}', 'DispoController@edit')->name('dispotruck');
+    // Route::get('/statut/dispo/confirm/{id}', 'StatutController@show')->name('dispotruck');
+    Route::get('/statut/dispo/post1/{id}', 'StatutController@choixFamille');
+    Route::get('/statut/dispo/depost1/{id}', 'StatutController@unChoixFamille');
 });

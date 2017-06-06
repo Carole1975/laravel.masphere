@@ -68,7 +68,11 @@
                             <div class="card-block">
                                 <h3 class="card-title">le {{ date('Y-m-d',strtotime($dispo->debut_dispo)) }} à {{ $dispo->debut_heure }}</h3>
                                 <p class="card-text">pour {{ $dispo->capacitegarde_max }} enfant(s) max, pendant {{ $dispo->duree }}h.<br /> {{ $dispo->commentaire }}</p>
-                                <a class="btn btn-primary" href='/statut/dispo/confirm/{{ $dispo->id }}'>prendre la dispo</a>
+                                @if($dispo->statut == NULL)
+                                <a class="btn btn-primary" href='/statut/dispo/post/{{ $dispo->id }}'>prendre la dispo</a>
+                                @elseif($dispo->statut == 1)
+                                <a class="btn btn-primary" href='/statut/dispo/depost/{{ $dispo->id }}'>annullllleeeerrrr</a>
+                                @endif
                             </div>
                         </div>
                         @endforeach
