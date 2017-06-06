@@ -78,7 +78,7 @@ class ProController extends Controller
 
         $dispo = new Dispo;
         // $dispo->debut_dispo = Carbon::createFromFormat('Y-m-d', $request->input('datedebut'))->format('d-m-Y');
-        $dispo->debut_dispo = Carbon::createFromFormat('Y-m-d', $request->input('datedebut'));
+        $dispo->debut_dispo = Carbon::createFromFormat('Y-m-d', $request->input('datedebut'))->format('Y-m-d').' 00:00:00';
         $dispo->debut_heure = $request->input('heure');
         $dispo->duree = $request->input('dureeheure');
         $dispo->commentaire = $request->input('commentaire');

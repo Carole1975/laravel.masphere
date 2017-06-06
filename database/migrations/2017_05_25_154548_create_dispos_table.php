@@ -20,6 +20,7 @@ class CreateDisposTable extends Migration
             $table->string('duree');
             $table->text('commentaire');
             $table->integer('capacitegarde_max');
+            $table->integer('statut');
             $table->timestamps();
         });
     }
