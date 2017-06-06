@@ -17,6 +17,10 @@ Route::get('/', function () {
     return redirect('/login');
 })->name('home');
 
+Route::get('/backerror', function() {
+    return redirect()->back();
+})->name('backerror');
+
 Route::group(['middleware'=>'pro'], function () {
     Route::get('/pro', 'ProController@index')->name('pro');
 
