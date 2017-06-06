@@ -33,4 +33,6 @@ Route::group(['middleware'=>'fam'], function () {
     Route::get('/family', 'FamilyController@home')->name('family');
     Route::get('/family/search', 'FamilyController@search')->name('familysearch');
     Route::post('/annonces/create', 'AnnonceController@createAnnonce')->name('createAnnonce');
+    Route::get('/statut/dispo/confirm/{id}', 'DispoController@show')->name('dispotruck');
+    Route::get('/statut/dispo/post/{id}', 'DispoController@edit')->name('dispotruck');
 });

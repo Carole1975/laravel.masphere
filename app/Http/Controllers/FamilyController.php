@@ -37,7 +37,7 @@ class FamilyController extends Controller
     {
         $debut = date('Y-m-d',strtotime($request->debut_annee.'-'.$request->debut_mois.'-'.$request->debut_jour));
         if($request->has('debut_annee') && $request->has('debut_mois') && $request->has('debut_jour')){
-            $dispos = Dispo::all()->where('debut_dispo','=',$debut.' 08:36:31');
+            $dispos = Dispo::all()->where('debut_dispo','=',$debut.' 00:00:00');
             // ->where('debut_dispo', '=', $request->disposearch);
         }else{
             $dispos = Dispo::all();
