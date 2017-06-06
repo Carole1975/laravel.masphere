@@ -86,4 +86,22 @@ class ProController extends Controller
         Auth::user()->dispos()->save($dispo);
         return redirect()->route('pro');
     }
+
+    public function getDispoToUpdate(Request $request, $id)
+    {
+        $disponibilite = Dispo::findOrfail($id);
+        return view('proUpdateDispo', ['disponibilite'=>$disponibilite]);
+    }
+
+    public function updateDispo(Request $request, $id)
+    {
+        $disponibilite = Dispo::findOrFail($id);
+        $disponibilite->debut = $request->input('');
+        $disponibilite->duree = $request->input('');
+        $disponibilite->nbrEnfant = $request->input('');
+        $disponibilite->update();
+        return redirect()->route('');
+        // dd($annonce);
+    }
+
 }

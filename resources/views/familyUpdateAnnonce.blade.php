@@ -22,26 +22,16 @@
                     You are logged in as Family!
                 </div>
                 <div>
-                    <h2>Mes annonces</h2>
-                    @foreach ($annonces as $annonce)
-                    <div class="card">
-                        <div class="card-block">
-                            <a href="/family/annonce/update/{{ $annonce->id }}">Modifier</a>
-                            <h3 class="card-title">{{ $annonce->debut }}</h3>
-                            <p class="card-text">Pendant : {{ $annonce->duree }}h</p><p> {{ $annonce->nbrEnfant }} Enfant(s)</p>
-                        </div>
-                    </div>
-                    @endforeach
 
                     <div>
-                        <form class="form-horizontal" role="form" method="POST" action="{{ route('createAnnonce') }}">
+                        <form class="form-horizontal" role="form" method="POST" action="/updateAnnonce/{{ $annonce->id }}">
                             {{ csrf_field() }}
 
                             <div class="form-group{{ $errors->has('annonceDebut') ? ' has-error' : '' }}">
                                 <label for="annonceDebut" class="col-md-4 control-label">Date et heure (YYYY-mm-dd HH:ii:ss)</label>
 
                                 <div class="col-md-6">
-                                    <input id="annonceDebut" type="text" class="form-control" name="annonceDebut" value="{{ old('annonceDebut') }}" required autofocus>
+                                    <input id="annonceDebut" type="text" class="form-control" name="annonceDebut" value="{{ $annonce->debut }}" required autofocus>
 
                                     @if ($errors->has('annonceDebut'))
                                     <span class="help-block">
@@ -55,7 +45,7 @@
                                 <label for="annonceDuree" class="col-md-4 control-label">Durée</label>
 
                                 <div class="col-md-6">
-                                    <input id="annonceDuree" type="text" class="form-control" name="annonceDuree" value="{{ old('annonceDuree') }}" required autofocus>
+                                    <input id="annonceDuree" type="text" class="form-control" name="annonceDuree" value="{{ $annonce->duree }}" required autofocus>
 
                                     @if ($errors->has('annonceDuree'))
                                     <span class="help-block">
@@ -69,7 +59,7 @@
                                 <label for="annonceNbrEnfant" class="col-md-4 control-label">Nombre d'enfant</label>
 
                                 <div class="col-md-6">
-                                    <input id="annonceNbrEnfant" type="text" class="form-control" name="annonceNbrEnfant" value="{{ old('annonceNbrEnfant') }}" required autofocus>
+                                    <input id="annonceNbrEnfant" type="text" class="form-control" name="annonceNbrEnfant" value="{{ $annonce->nbrEnfant }}" required autofocus>
 
                                     @if ($errors->has('annonceNbrEnfant'))
                                     <span class="help-block">
@@ -80,11 +70,8 @@
                             </div>
 
                             <button type="submit" class="btn btn-primary">
-                                nouvelle annonce
+                                Mettre à jour mon annonce
                             </button>
-
-
-
 
                         </form>
                     </div>
