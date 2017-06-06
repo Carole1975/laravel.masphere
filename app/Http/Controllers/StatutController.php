@@ -50,10 +50,14 @@ class StatutController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function showChoosedDispo(Request $request, $id)
+    public function proIndex(Request $request)
     {
-        $disponibilites = $request->user()->dispos;
-        return view('dispostatut', ['dispos'=>$dispos]);
+        // a modifier pour arfficher les annoces sur lesquelles il s'est placer (puisque la ce serai les annoces de l'utilisateur connecter, qui dans ce cas est un pro et n'as pas d'annoces)
+        $annonces = $request->user()->annonces;
+
+        // affichage des dispos qui ont étés choisies par une/des famille(s)
+        $dispos = $request->user()->dispos->where('statut', '>', 0);
+        return view('pro', ['annonces'=>$annonces, 'dispos'=>$dispos]);
     }
 
     /**
@@ -100,6 +104,42 @@ class StatutController extends Controller
         $dispos->save();
         Session::flash('flash_message', 'OKAAAAAAYYYYYY');
         return redirect('/family/search');
+        // return view('dispostatut', ['dispos'=>$dispos]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function validationDispoPro(Request $request, $id)
+    {
+        // modif;
+        $dispos = Dispo::all()->where('id', '=', $id)->first();
+        $dispos->statut = 2;
+        $dispos->save();
+        Session::flash('flash_message', 'OKAAAAAAYYYYYY');
+        return redirect('/pro');
+        // return view('dispostatut', ['dispos'=>$dispos]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function deValidationDispoPro(Request $request, $id)
+    {
+        // modif;
+        $dispos = Dispo::all()->where('id', '=', $id)->first();
+        $dispos->statut = 1;
+        $dispos->save();
+        Session::flash('flash_message', 'OKAAAAAAYYYYYY');
+        return redirect('/pro');
         // return view('dispostatut', ['dispos'=>$dispos]);
     }
 

@@ -18,7 +18,8 @@ Route::get('/', function () {
 })->name('home');
 
 Route::group(['middleware'=>'pro'], function () {
-    Route::get('/pro', 'ProController@index')->name('pro');
+    // Route::get('/pro', 'ProController@index')->name('pro');
+    Route::get('/pro', 'StatutController@proIndex')->name('pro');
 
     Route::get('/pro/annonces/choose/{id}', 'ProController@chooseAnnonce');
     Route::get('/pro/annonces/unchoose/{id}', 'ProController@unchooseAnnonce');
@@ -28,8 +29,10 @@ Route::group(['middleware'=>'pro'], function () {
     Route::post('/pro/createdispo', 'ProController@createDispo')->name('createDispo');
     Route::get('/pro/dispo', 'ProController@dispoform')->name('dispoform');
 
-    // Route::get('/statut/dispo/post2/{id}', 'StatutController@validationPro');
-    // Route::get('/statut/dispo/depost2/{id}', 'StatutController@unChoixFamille');
+    // Route::get('/pro/dispo', 'ProController@dispoform');
+
+    Route::get('/statut/dispo/post2/{id}', 'StatutController@validationDispoPro');
+    Route::get('/statut/dispo/depost2/{id}', 'StatutController@deValidationDispoPro');
 });
 
 Route::group(['middleware'=>'fam'], function () {
