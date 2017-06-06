@@ -118,6 +118,7 @@
                 </div>
                 @foreach ($disponibilites as $disponibilite)
                     <div class="card">
+                    <a href="/pro/dispo/update/{{ $disponibilite->id }}">Modifier</a>
                         <div class="card-block" date-id="{{ $disponibilite->id }}">
                             <h3 class="card-title">{{ $disponibilite->debut_dispo }}</h3>
                             <p class="card-text">À {{ $disponibilite->debut_heure }}, pendant {{ $disponibilite->duree }} heure(s) pour {{ $disponibilite->capacitegarde_max }} enfant(s).</p>

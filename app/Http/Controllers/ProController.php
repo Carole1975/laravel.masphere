@@ -90,18 +90,20 @@ class ProController extends Controller
     public function getDispoToUpdate(Request $request, $id)
     {
         $disponibilite = Dispo::findOrfail($id);
-        return view('proUpdateDispo', ['disponibilite'=>$disponibilite]);
+        $date = $disponibilite->debut_dispo;
+        return view('proUpdateDispo', ['disponibilite'=>$disponibilite, 'debut_date'=>$date]);
     }
 
     public function updateDispo(Request $request, $id)
     {
-        $disponibilite = Dispo::findOrFail($id);
-        $disponibilite->debut = $request->input('');
-        $disponibilite->duree = $request->input('');
-        $disponibilite->nbrEnfant = $request->input('');
-        $disponibilite->update();
-        return redirect()->route('');
-        // dd($annonce);
+        $dispos = Dispo::findOrFail($id);
+        $dispos->debut_dispo = $request->input('datedebut');
+        $dispos->debut_heure = $request->input('heure');
+        $dispos->duree = $request->input('dureeheure');
+        $dispos->commentaire = $request->input('commentaire');
+        $dispos->capacitegarde_max = $request->input('enfants');
+        $dispos->update();
+        return redirect()->route('dispoform');
     }
 
 }

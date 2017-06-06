@@ -27,12 +27,14 @@ Route::group(['middleware'=>'pro'], function () {
 
     Route::post('/pro/createdispo', 'ProController@createDispo')->name('createDispo');
     Route::get('/pro/dispo', 'ProController@dispoform')->name('dispoform');
+    Route::get('/pro/dispo/update/{id}', ['uses'=>'ProController@getDispoToUpdate']);
+    Route::post('/updateDispo/{id}', 'ProController@updateDispo')->name('updateDispo');
 });
 
 Route::group(['middleware'=>'fam'], function () {
     Route::get('/family', 'FamilyController@home')->name('family');
     Route::get('/family/search', 'FamilyController@search')->name('familysearch');
     Route::post('/annonces/create', 'AnnonceController@createAnnonce')->name('createAnnonce');
-    Route::get('/family/annonce/update/{id}', ['uses' => 'FamilyController@getAnnonceToUpdate']);
+    Route::get('/family/annonce/update/{id}', ['uses'=>'FamilyController@getAnnonceToUpdate']);
     Route::post('/updateAnnonce/{id}', 'FamilyController@updateAnnonce')->name('updateAnnonce');
 });
