@@ -28,8 +28,15 @@ class ProController extends Controller
     public function index(Request $request)
     {
 
+        // $annonces = $request->user()->annonces;
+        // return view('pro', ['annonces'=>$annonces]);
+
+        // a modifier pour arfficher les annoces sur lesquelles il s'est placer (puisque la ce serai les annoces de l'utilisateur connecter, qui dans ce cas est un pro et n'as pas d'annoces)
         $annonces = $request->user()->annonces;
-        return view('pro', ['annonces'=>$annonces]);
+
+        // affichage des dispos qui ont étés choisies par une/des famille(s)
+        $dispos = $request->user()->dispos->where('statut', '>', 0);
+        return view('pro', ['annonces'=>$annonces, 'dispos'=>$dispos]);
     }
 
     public function search(Request $request)
@@ -52,20 +59,7 @@ class ProController extends Controller
         //$annonces = $request->user()->annonces;
         return view('prosearch', ['annonces'=>$annonces]);
     }
-    public function chooseAnnonce(Request $request, $id)
-    {
-        //$request->user()->annonces()->sync([$id]);
-        $request->user()->annonces()->attach($id);
-        return redirect()->route('pro');
-    }
 
-    public function unchooseAnnonce(Request $request, $id)
-    {
-        //$request->user()->annonces()->sync([$id]);
-        $request->user()->annonces()->detach($id);
-        return redirect()->route('pro');
-
-    }
     public function dispoform(Request $request)
     {
         $disponibilites = $request->user()->dispos;
@@ -78,7 +72,7 @@ class ProController extends Controller
 
         $dispo = new Dispo;
         // $dispo->debut_dispo = Carbon::createFromFormat('Y-m-d', $request->input('datedebut'))->format('d-m-Y');
-        $dispo->debut_dispo = Carbon::createFromFormat('Y-m-d', $request->input('datedebut'));
+        $dispo->debut_dispo = Carbon::createFromFormat('Y-m-d', $request->input('datedebut'))->format('Y-m-d').' 00:00:00';
         $dispo->debut_heure = $request->input('heure');
         $dispo->duree = $request->input('dureeheure');
         $dispo->commentaire = $request->input('commentaire');

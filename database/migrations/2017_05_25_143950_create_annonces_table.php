@@ -18,10 +18,9 @@ class CreateAnnoncesTable extends Migration
             $table->dateTime('debut');
             $table->smallInteger('duree');
             $table->smallInteger('nbrEnfant');
+            $table->smallInteger('statut')->default(0);
             $table->boolean('gardeChezFamille');
-
             $table->timestamps();
-            //
         });
     }
 
