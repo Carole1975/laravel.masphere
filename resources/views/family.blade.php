@@ -12,28 +12,16 @@
         <a href="/pro">Dashboard</a>
     </div>
 </div>
-<div class="container dashboard">
+
+<div class="container prosearch">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Dashboard Family</div>
+                <div class="panel-heading">Déposer un annonce</div>
+                <div class="card">
+                    <div class="card-block">
 
-                <div class="panel-body">
-                    You are logged in as Family!
-                </div>
-                <div>
-                    <h2>Mes annonces</h2>
-                    @foreach ($annonces as $annonce)
-                    <div class="card">
-                        <div class="card-block">
-                            <a href="/family/annonce/update/{{ $annonce->id }}">Modifier</a>
-                            <h3 class="card-title">{{ $annonce->debut }}</h3>
-                            <p class="card-text">Pendant : {{ $annonce->duree }}h</p><p> {{ $annonce->nbrEnfant }} Enfant(s)</p>
-                        </div>
-                    </div>
-                    @endforeach
 
-                    <div>
                         <form class="form-horizontal" role="form" method="POST" action="{{ route('createAnnonce') }}">
                             {{ csrf_field() }}
 
@@ -80,17 +68,35 @@
                             </div>
 
                             <button type="submit" class="btn btn-primary">
-                                nouvelle annonce
+                                Nouvelle annonce
                             </button>
 
-
-
-
                         </form>
-                    </div>
 
+                    </div>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container dashboard">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+
+                    <div class="panel-heading">Mes annonces</div>
+                    @foreach ($annonces as $annonce)
+                    <div class="card">
+                        <div class="card-block">
+                            <a href="/family/annonce/update/{{ $annonce->id }}">Modifier</a>
+                            <h3 class="card-title">{{ $annonce->debut }}</h3>
+                            <p class="card-text">Pendant : {{ $annonce->duree }}h</p><p> {{ $annonce->nbrEnfant }} Enfant(s)</p>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
         </div>
     </div>
     @endsection

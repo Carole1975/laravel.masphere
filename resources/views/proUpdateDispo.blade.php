@@ -9,13 +9,22 @@
 
 <div class="container-bottom">
     <div class="search-button">
-        <!--<p>Chercher</p>-->
-        <a href="/family/search">
+        <a class="linkmenu" href="/pro/search">
             <i class="fa fa-search fa-2x" aria-hidden="true"></i>
+            <p class="textmenu">Rechercher</p>
         </a>
     </div>
     <div class="dashboard-button">
-        <a href="/pro">Dashboard</a>
+        <a class="linkmenu" href="/pro">
+            <i class="fa fa-list fa-2x" aria-hidden="true"></i>
+            <p class="textmenu">Mon dashboard</p>
+        </a>
+    </div>
+    <div class="dispo-page selected">
+        <a class="linkmenu" href="/pro/dispo">
+            <i class="fa fa-user fa-2x" aria-hidden="true"></i>
+            <p class="textmenu">Mes disponibilités</p>
+        </a>
     </div>
 </div>
 

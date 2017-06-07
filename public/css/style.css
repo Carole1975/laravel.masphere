@@ -107,6 +107,7 @@ a.navbar-brand {
     border: none;
 }
 
+
 .form-control:focus {
     background: #FFE5E2;
     opacity: .8;
@@ -120,8 +121,6 @@ input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0 30px white inset;
 }
 input:-webkit-autofill:focus {
-    /*border: none;*/
-    /*opacity: .8;*/
     -webkit-box-shadow: 0 0 0 30px #FFE5E2 inset;
 }
 
@@ -137,10 +136,16 @@ a>.btn-link {
     height: 100%;
 }
 
+textarea {
+    width: 100%;
+    border: 1px grey solid;
+}
+
 .container-bottom {
     display:flex;
-    background: black;
-    opacity: .7;
+    /*background: black;*/
+    background: rgba(0, 0, 0, .7);
+    /*opacity: .7;*/
     position: fixed;
     bottom: 0;
     width: 100vw;
@@ -154,6 +159,10 @@ a>.btn-link {
     display: flex;
     justify-content: center;
     flex-direction: column;
+}
+
+.selected {
+    background: rgba(0, 0, 0, .5);
 }
 
 .textmenu{

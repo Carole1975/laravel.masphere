@@ -8,7 +8,7 @@
             <p class="textmenu">Rechercher</p>
         </a>
     </div>
-    <div class="dashboard-button">
+    <div class="dashboard-button selected">
         <a class="linkmenu" href="/pro">
             <i class="fa fa-list fa-2x" aria-hidden="true"></i>
             <p class="textmenu">Mon dashboard</p>

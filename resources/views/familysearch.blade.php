@@ -12,16 +12,15 @@
         <a href="/pro">Dashboard</a>
     </div>
 </div>
-<div class="container dashboard">
+
+<div class="container prosearch">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Dashboard Family</div>
+                <div class="panel-heading">Recherche d'un professionnel</div>
 
-                <div class="panel-body">
-                    You are logged in as Family! and you'r searching
-                </div> 
-                <div>
+                <div class="card">
+                    <div class="card-block">
                     <form class="form-horizontal" role="form" method="" action="{{ route('familysearch') }}">
                         {{ csrf_field() }}
 
@@ -53,29 +52,47 @@
                                 </span>
                                 @endif
                             </div>
-                            <button type="submit" class="btn btn-primary">
+
+                        </div>
+
+                            <button type="submit" class="btn btn-primary findpro">
                                 trouver un pro
                             </button>
-                        </div>
                     </form>
-                </div>
-                <div>
-                    <h2>les pros et tout</h2>
-                    {{-- <h2>{{ $debut }}</h2> --}}
-                    <ul>
-                        @foreach ($dispos as $dispo)
-                        <div class="card">
-                            <div class="card-block">
-                                <h3 class="card-title">le {{ date('Y-m-d',strtotime($dispo->debut_dispo)) }} à {{ $dispo->debut_heure }}</h3>
-                                <p class="card-text">pour {{ $dispo->capacitegarde_max }} enfant(s) max, pendant {{ $dispo->duree }}h.<br /> {{ $dispo->commentaire }}</p>
-                            </div>
-                        </div>
-                        @endforeach
-                    </ul>
+
+
+                    </div>
                 </div>
 
             </div>
         </div>
     </div>
 </div>
+
+
+
+<div class="container dashboard">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">Résultats de recherche</div>
+                   {{-- <h2>{{ $debut }}</h2> --}}
+                        @foreach ($dispos as $dispo)
+                        <div class="card">
+                            <div class="card-block">
+                                <h3 class="card-title">le {{ date('Y-m-d',strtotime($dispo->debut_dispo)) }} à {{ $dispo->debut_heure }}</h3>
+                                <p class="card-text">pour {{ $dispo->capacitegarde_max }} enfant(s) max, pendant {{ $dispo->duree }}h.<br /> Commentaires : {{ $dispo->commentaire }}</p>
+                            </div>
+                        </div>
+                        @endforeach
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
 @endsection

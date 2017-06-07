@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container-bottom">
-    <div class="search-button">
+    <div class="search-button selected">
         <a class="linkmenu" href="/pro/search">
             <i class="fa fa-search fa-2x" aria-hidden="true"></i>
             <p class="textmenu">Rechercher</p>
@@ -34,44 +34,39 @@
 
                         <form class="form-horizontal" role="form" method="POST" action="{{ route('prosearchpost') }}">
                             {{ csrf_field() }}
+                        <div class="container_form">
 
-                            <div class="form-group{{ $errors->has('filtreNbEnfant') ? ' has-error' : '' }}">
-                                <label for="filtreNbEnfant" class="col-md-4 control-label">Nombre Enfant Max</label>
+                            <div class="col-md-4 form_search_pro_section form-group{{ $errors->has('filtreNbEnfant') ? ' has-error' : '' }}">
+                                <label for="filtreNbEnfant" class="control-label">Nombre Enfant Max</label>
 
-                                <div class="col-md-1 input">
+                                <div class="input">
                                     <input class="rechercheinput" id="filtreNbEnfant" class="form-control" type="text" name="filtreNbEnfant" value="{{ old('filtreNbEnfant') }}">
 
                                 </div>
                             </div>
 
-                            <div class="form-group{{ $errors->has('filtreDureeMini') ? ' has-error' : '' }}">
-                                <label for="filtreDureeMini" class="col-md-4 control-label">Durée Minimale</label>
+                            <div class="form_search_pro_section col-md-4 form-group{{ $errors->has('filtreDureeMini') ? ' has-error' : '' }}">
+                                <label for="filtreDureeMini" class="control-label">Durée Minimale</label>
 
-                                <div class="col-md-1 input">
+                                <div class="input">
                                     <input class="rechercheinput" id="filtreDureeMini" type="text" name="filtreDureeMini" value="{{ old('filtreDureeMini') }}">
                                 </div>
                             </div>
-                            <div class="form-group{{ $errors->has('filtreDureeMax') ? ' has-error' : '' }}">
-                                <label for="filtreDureeMax" class="col-md-4 control-label">Durée Maximale</label>
 
-                                <div class="col-md-1 input">
+                            <div class="form_search_pro_section col-md-4 form-group{{ $errors->has('filtreDureeMax') ? ' has-error' : '' }}">
+                                <label for="filtreDureeMax" class="control-label">Durée Maximale</label>
+                                <div class="input">
                                     <input class="rechercheinput" id="filtreDureeMax" type="text" name="filtreDureeMax" value="{{ old('filtreDureeMax') }}">
                                 </div>
+                        </div>
+
                             </div>
-
-
-
-
-
-                        <!--<p class="card-text">Adresse :    | A partir de :        | Pendant :       . |</p>
-                        <p><i class="fa fa-info-circle" aria-hidden="true"></i>
-                            Plus d'informations</p>-->
                             <button type="submit" class="btn btn-primary attent">Mettre à jour vos critères de recherche</button>
                         </div>
                     </form>
 
                 </div>
-                <div class="panel-heading">Résultats de votre recherche</div>
+                <div class="panel-heading"></div>
                 @if (count($annonces) === 0)
                 <p class = 'messages'>Aucune annonce ne correspond à vos critères</p>
                 @else
