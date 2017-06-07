@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container-bottom">
+{{-- <div class="container-bottom">
     <div class="search-button">
         <!--<p>Chercher</p>-->
         <a href="/family/search">
@@ -11,7 +11,31 @@
     <div class="dashboard-button">
         <a href="/pro">Dashboard</a>
     </div>
+</div> --}}
+
+
+<div class="container-bottom">
+    <div class="search-button">
+        <a class="linkmenu" href="/family/search">
+            <i class="fa fa-search fa-2x" aria-hidden="true"></i>
+            <p class="textmenu">Rechercher</p>
+        </a>
+    </div>
+    <div class="dashboard-button selected">
+        <a class="linkmenu" href="/family">
+            <i class="fa fa-list fa-2x" aria-hidden="true"></i>
+            <p class="textmenu">Mon dashboard</p>
+        </a>
+    </div>
+    <div class="dispo-page">
+        <a class="linkmenu" href="#">
+            <i class="fa fa-user fa-2x" aria-hidden="true"></i>
+            <p class="textmenu">Mes annonces</p>
+        </a>
+    </div>
 </div>
+
+
 
 <div class="container prosearch">
     <div class="row">
