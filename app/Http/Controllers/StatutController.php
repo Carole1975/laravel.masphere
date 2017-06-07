@@ -62,7 +62,7 @@ class StatutController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function choixFamille(Request $request, $id)
+    public function choixDispoFamille(Request $request, $id)
     {
         // modif;
         $dispos = Dispo::all()->where('id', '=', $id)->first();
@@ -81,7 +81,7 @@ class StatutController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function unChoixFamille(Request $request, $id)
+    public function unChoixDispoFamille(Request $request, $id)
     {
         // modif;
         $dispos = Dispo::all()->where('id', '=', $id)->first();
@@ -161,6 +161,42 @@ class StatutController extends Controller
         $annonces->save();
         $request->user()->annonces()->detach($id);
         return redirect()->back();
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function validationAnnonceFam(Request $request, $id)
+    {
+        // modif;
+        $dispos = Annonce::all()->where('id', '=', $id)->first();
+        $dispos->statut = 2;
+        $dispos->save();
+        Session::flash('flash_message', 'OKAAAAAAYYYYYY');
+        return redirect()->back();
+        // return view('dispostatut', ['dispos'=>$dispos]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function deValidationAnnonceFam(Request $request, $id)
+    {
+        // modif;
+        $annonces = Annonce::all()->where('id', '=', $id)->first();
+        $annonces->statut = 0;
+        $annonces->save();
+        Session::flash('flash_message', 'OKAAAAAAYYYYYY');
+        return redirect()->back();
+        // return view('annoncestatut', ['annonces'=>$annonces]);
     }
 
     /**

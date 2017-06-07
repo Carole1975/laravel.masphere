@@ -11,22 +11,28 @@ class AnnonceController extends Controller
 	public function __construct()
 	{
 		$this->middleware('auth');
-  /*$this->middleware(function ($request, $next) {
+  	/*$this->middleware(function ($request, $next) {
     if(false === Auth::user()->isFamille()){
       return redirect()->route(Auth::user()->getHomePageRoute());
     }
     return $next($request);
-});*/
-}
+	});*/
+	}
 
-public function createAnnonce(Request $request){
-	$annonce = new Annonce;
-	$annonce->debut = $request->input('annonceDebut');
-	$annonce->duree = $request->input('annonceDuree');
-	$annonce->nbrEnfant = $request->input('annonceNbrEnfant');
-	$annonce->gardeChezFamille = 1;
-	$user = $request->user();
-	$user->annonces()->save($annonce);
-	return redirect()->route('family');
-}
+	public function createAnnonce(Request $request){
+		$annonce = new Annonce;
+		$annonce->debut = $request->input('annonceDebut');
+		$annonce->duree = $request->input('annonceDuree');
+		$annonce->nbrEnfant = $request->input('annonceNbrEnfant');
+		$annonce->gardeChezFamille = 1;
+		$user = $request->user();
+		$user->annonces()->save($annonce);
+		return redirect()->route('family');
+	}
+
+	public function supprAnnonce(Request $request, $id){
+		$annonce = Annonce::all()->where('id', '=', $id)->first();
+		$annonce->delete();
+		return redirect()->back();
+	}
 }

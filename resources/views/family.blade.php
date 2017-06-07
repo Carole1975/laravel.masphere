@@ -22,13 +22,22 @@
                     You are logged in as Family!
                 </div> 
                 <div>
-                    <h2>Mes annonces</h2>    
-                    @foreach ($annonces as $annonce)
+                    <h2>Mes annonces</h2>
+                    {{-- /statut/annonce/post2/{id} --}}
+                    @foreach ($annonces as $annonce) 
                     <div class="card">
                         <div class="card-block">
                             <h3 class="card-title">{{ $annonce->debut }}</h3>
                             <p class="card-text">Pendant : {{ $annonce->duree }}h</p>
                             <p> {{ $annonce->nbrEnfant }} Enfant(s)</p>
+                            @if($annonce->statut == 0)
+                                <a href="/annonces/suppr/{{ $annonce->id }}" class="btn btn-primary choisir" name="choisir" id="attente"> <i class="fa fa-circle-o" aria-hidden="true"></i> en attente, retirer ?</a>
+                            @elseif($annonce->statut == 1)
+                                <a href="/statut/annonce/depost2/{{ $annonce->id }}" class="btn btn-primary choisir" name="annuler" id="annuler"> <i class="fa fa-circle-o" aria-hidden="true"></i> annuler</a>
+                                <a href="/statut/annonce/post2/{{ $annonce->id }}" class="btn btn-primary choisir" name="valider" id="valider">valider le pro(en fonction du profil)</a>
+                            @elseif($annonce->statut == 2)
+                                <a href="#" class="btn btn-primary choisir" name="numdupro" id="numdupro">n° du pro</a>
+                            @endif
                         </div>
                     </div>
                     @endforeach

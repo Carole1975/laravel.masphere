@@ -23,6 +23,7 @@ Route::group(['middleware'=>'pro'], function () {
 
     Route::get('/pro/annonces/choose/{id}', 'StatutController@chooseAnnoncePro');
     Route::get('/pro/annonces/unchoose/{id}', 'StatutController@unchooseAnnoncePro');
+
     Route::post('/pro/search/post', 'ProController@search')->name('prosearchpost');
     Route::get('/pro/search', 'ProController@search')->name('prosearch');
 
@@ -41,7 +42,11 @@ Route::group(['middleware'=>'fam'], function () {
 
     Route::get('/family/search', 'FamilyController@search')->name('familysearch');
     Route::post('/annonces/create', 'AnnonceController@createAnnonce')->name('createAnnonce');
+    Route::get('/annonces/suppr/{id}', 'AnnonceController@supprAnnonce');
     // Route::get('/statut/dispo/confirm/{id}', 'StatutController@show')->name('dispotruck');
-    Route::get('/statut/dispo/post1/{id}', 'StatutController@choixFamille');
-    Route::get('/statut/dispo/depost1/{id}', 'StatutController@unChoixFamille');
+    Route::get('/statut/dispo/post1/{id}', 'StatutController@choixDispoFamille');
+    Route::get('/statut/dispo/depost1/{id}', 'StatutController@unChoixDispoFamille');
+
+    Route::get('/statut/annonce/post2/{id}', 'StatutController@validationAnnonceFam');
+    Route::get('/statut/annonce/depost2/{id}', 'StatutController@deValidationAnnonceFam');
 });
