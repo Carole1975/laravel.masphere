@@ -21,8 +21,8 @@ Route::group(['middleware'=>'pro'], function () {
     // Route::get('/pro', 'ProController@index')->name('pro');
     Route::get('/pro', 'ProController@index')->name('pro');
 
-    Route::get('/pro/annonces/choose/{id}', 'ProController@chooseAnnonce');
-    Route::get('/pro/annonces/unchoose/{id}', 'ProController@unchooseAnnonce');
+    Route::get('/pro/annonces/choose/{id}', 'StatutController@chooseAnnoncePro');
+    Route::get('/pro/annonces/unchoose/{id}', 'StatutController@unchooseAnnoncePro');
     Route::post('/pro/search/post', 'ProController@search')->name('prosearchpost');
     Route::get('/pro/search', 'ProController@search')->name('prosearch');
 

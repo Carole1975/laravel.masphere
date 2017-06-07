@@ -130,6 +130,40 @@ class StatutController extends Controller
     }
 
     /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function chooseAnnoncePro(Request $request, $id)
+    {
+        //$request->user()->annonces()->sync([$id]);
+        $annonces = Annonce::all()->where('id', '=', $id)->first();
+        $annonces->statut = 1;
+        $annonces->save();
+        $request->user()->annonces()->attach($id);
+        return redirect()->route('pro');
+    }
+    
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function unchooseAnnoncePro(Request $request, $id)
+    {
+        //$request->user()->annonces()->sync([$id]);
+        $annonces = Annonce::all()->where('id', '=', $id)->first();
+        $annonces->statut = 0;
+        $annonces->save();
+        $request->user()->annonces()->detach($id);
+        return redirect()->back();
+    }
+
+    /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id

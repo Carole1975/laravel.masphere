@@ -27,7 +27,8 @@
                     <div class="card">
                         <div class="card-block">
                             <h3 class="card-title">{{ $annonce->debut }}</h3>
-                            <p class="card-text">Pendant : {{ $annonce->duree }}h</p><p> {{ $annonce->nbrEnfant }} Enfant(s)</p>
+                            <p class="card-text">Pendant : {{ $annonce->duree }}h</p>
+                            <p> {{ $annonce->nbrEnfant }} Enfant(s)</p>
                         </div>
                     </div>
                     @endforeach

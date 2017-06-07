@@ -59,20 +59,7 @@ class ProController extends Controller
         //$annonces = $request->user()->annonces;
         return view('prosearch', ['annonces'=>$annonces]);
     }
-    public function chooseAnnonce(Request $request, $id)
-    {
-        //$request->user()->annonces()->sync([$id]);
-        $request->user()->annonces()->attach($id);
-        return redirect()->route('pro');
-    }
 
-    public function unchooseAnnonce(Request $request, $id)
-    {
-        //$request->user()->annonces()->sync([$id]);
-        $request->user()->annonces()->detach($id);
-        return redirect()->route('pro');
-
-    }
     public function dispoform(Request $request)
     {
         $disponibilites = $request->user()->dispos;

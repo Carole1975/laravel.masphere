@@ -48,7 +48,8 @@
                         <div class="card-block">
                             <h3 class="card-title">{{ $dispo->debut }}</h3>
                             <p>statut : en attente de confirmation de la famille</p>
-                            <p class="card-text">Pendant : {{ $dispo->duree }}h</p><p> {{ $dispo->nbrEnfant }} Enfant(s)</p>
+                            <p class="card-text">Pendant : {{ $dispo->duree }}h</p>
+                            <p> {{ $dispo->nbrEnfant }} Enfant(s)</p>
                             <div class="acceptornot">
                                 @if($dispo->statut == 1)
                                     <a href="/statut/dispo/post2/{{ $dispo->id }}" class="btn btn-primary choisir" name="choisir" id="choisir"> <i class="fa fa-circle-o" aria-hidden="true"></i> accepter</a>

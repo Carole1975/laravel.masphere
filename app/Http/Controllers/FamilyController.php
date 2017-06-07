@@ -29,7 +29,6 @@ class FamilyController extends Controller
     {
         $annonces = $request->user()->annonces;
         $dispos = $request->user()->dispos;
-        // $dispos = Dispo::all();
         return view('family', ['annonces'=>$annonces, 'dispos'=>$dispos]);
     }
 
