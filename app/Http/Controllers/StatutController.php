@@ -45,22 +45,6 @@ class StatutController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function proIndex(Request $request)
-    {
-        // a modifier pour arfficher les annoces sur lesquelles il s'est placer (puisque la ce serai les annoces de l'utilisateur connecter, qui dans ce cas est un pro et n'as pas d'annoces)
-        $annonces = $request->user()->annonces;
-
-        // affichage des dispos qui ont étés choisies par une/des famille(s)
-        $dispos = $request->user()->dispos->where('statut', '>', 0);
-        return view('pro', ['annonces'=>$annonces, 'dispos'=>$dispos]);
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -84,8 +68,9 @@ class StatutController extends Controller
         $dispos = Dispo::all()->where('id', '=', $id)->first();
         $dispos->statut = 1;
         $dispos->save();
+        $request->user()->dispos()->attach($id);
         Session::flash('flash_message', 'OKAAAAAAYYYYYY');
-        return redirect('/family/search');
+        return redirect()->back();
         // return view('dispostatut', ['dispos'=>$dispos]);
     }
 
@@ -102,8 +87,9 @@ class StatutController extends Controller
         $dispos = Dispo::all()->where('id', '=', $id)->first();
         $dispos->statut = NULL;
         $dispos->save();
+        $request->user()->dispos()->detach($id);
         Session::flash('flash_message', 'OKAAAAAAYYYYYY');
-        return redirect('/family/search');
+        return redirect()->back();
         // return view('dispostatut', ['dispos'=>$dispos]);
     }
 
@@ -121,7 +107,7 @@ class StatutController extends Controller
         $dispos->statut = 2;
         $dispos->save();
         Session::flash('flash_message', 'OKAAAAAAYYYYYY');
-        return redirect('/pro');
+        return redirect()->back();
         // return view('dispostatut', ['dispos'=>$dispos]);
     }
 
@@ -139,7 +125,7 @@ class StatutController extends Controller
         $dispos->statut = 1;
         $dispos->save();
         Session::flash('flash_message', 'OKAAAAAAYYYYYY');
-        return redirect('/pro');
+        return redirect()->back();
         // return view('dispostatut', ['dispos'=>$dispos]);
     }
 

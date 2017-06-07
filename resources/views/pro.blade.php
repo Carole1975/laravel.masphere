@@ -32,7 +32,7 @@
                     <div class="card">
                         <div class="card-block">
                             <h3 class="card-title">{{ $annonce->debut }}</h3>
-                            <p>statut : en attente de confirmation de la famille</p>
+                            <p>statut de l'annonce</p>
                             <p class="card-text">Pendant : {{ $annonce->duree }}h</p><p> {{ $annonce->nbrEnfant }} Enfant(s)</p>
                             <div class="acceptornot">
                                 <a href="/pro/annonces/unchoose/{{ $annonce->id }}" class="btn btn-primary choisir" name="choisir" id="choisir"> <i class="fa fa-check-circle-o" aria-hidden="true"></i>
@@ -51,9 +51,10 @@
                             <p class="card-text">Pendant : {{ $dispo->duree }}h</p><p> {{ $dispo->nbrEnfant }} Enfant(s)</p>
                             <div class="acceptornot">
                                 @if($dispo->statut == 1)
-                                    <a href="/statut/dispo/post2/{{ $dispo->id }}" class="btn btn-primary choisir" name="choisir" id="choisir"> <i class="fa fa-check-circle-o" aria-hidden="true"></i> accepter</a>
+                                    <a href="/statut/dispo/post2/{{ $dispo->id }}" class="btn btn-primary choisir" name="choisir" id="choisir"> <i class="fa fa-circle-o" aria-hidden="true"></i> accepter</a>
                                 @elseif($dispo->statut == 2)
-                                    <a href="/statut/dispo/depost2/{{ $dispo->id }}" class="btn btn-primary choisir" name="annuler" id="annuler"> <i class="fa fa-circle-o" aria-hidden="true"></i> annuler</a>
+                                    <a href="/statut/dispo/depost2/{{ $dispo->id }}" class="btn btn-primary choisir" name="annuler" id="annuler"> <i class="fa fa-check-circle-o" aria-hidden="true"></i> annuler</a>
+                                    <a href="#" class="btn btn-primary choisir" name="annuler" id="annuler">n° de la famille</a>
                                 @endif
                             </div>
                         </div>

@@ -28,8 +28,15 @@ class ProController extends Controller
     public function index(Request $request)
     {
 
+        // $annonces = $request->user()->annonces;
+        // return view('pro', ['annonces'=>$annonces]);
+
+        // a modifier pour arfficher les annoces sur lesquelles il s'est placer (puisque la ce serai les annoces de l'utilisateur connecter, qui dans ce cas est un pro et n'as pas d'annoces)
         $annonces = $request->user()->annonces;
-        return view('pro', ['annonces'=>$annonces]);
+
+        // affichage des dispos qui ont étés choisies par une/des famille(s)
+        $dispos = $request->user()->dispos->where('statut', '>', 0);
+        return view('pro', ['annonces'=>$annonces, 'dispos'=>$dispos]);
     }
 
     public function search(Request $request)

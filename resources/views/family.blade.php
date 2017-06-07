@@ -40,7 +40,7 @@
                                 <label for="annonceDebut" class="col-md-4 control-label">Date et heure (YYYY-mm-dd HH:ii:ss)</label>
 
                                 <div class="col-md-6">
-                                    <input id="annonceDebut" type="text" class="form-control" name="annonceDebut" value="{{ old('annonceDebut') }}" required autofocus>
+                                    <input id="annonceDebut" type="date" class="form-control" name="annonceDebut" value="{{ old('annonceDebut') }}" required autofocus>
 
                                     @if ($errors->has('annonceDebut'))
                                     <span class="help-block">
@@ -81,11 +81,25 @@
                             <button type="submit" class="btn btn-primary">
                                 nouvelle annonce
                             </button>
-
-
-
-
                         </form>
+                    </div>
+                    <div>
+                        <h2>les dispos de pro que j'ai choisi</h2>
+                        @foreach ($dispos as $dispo)
+                        <div class="card">
+                            <div class="card-block">
+                                <h3 class="card-title">le {{ date('Y-m-d',strtotime($dispo->debut_dispo)) }} à {{ $dispo->debut_heure }}</h3>
+                                <p class="card-text">pour {{ $dispo->capacitegarde_max }} enfant(s) max, pendant {{ $dispo->duree }}h.<br /> {{ $dispo->commentaire }}</p>
+                                @if($dispo->statut == 0 || $dispo->statut == NULL)
+                                <a class="btn btn-primary" href='/statut/dispo/post1/{{ $dispo->id }}'>prendre la dispo</a>
+                                @elseif($dispo->statut == 1)
+                                <a class="btn btn-primary" href='/statut/dispo/depost1/{{ $dispo->id }}'>annullllleeeerrrr</a>
+                                @elseif($dispo->statut == 2)
+                                <a class="btn btn-primary" href='#'>n° du pro</a>
+                                @endif
+                            </div>
+                        </div>
+                        @endforeach
                     </div>
 
                 </div>
