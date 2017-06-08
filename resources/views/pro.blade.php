@@ -36,7 +36,7 @@
                             <p class="card-text">Pendant : {{ $annonce->duree }}h</p><p> {{ $annonce->nbrEnfant }} Enfant(s)</p>
                             <div class="acceptornot">
                             @if($annonce->statut == 1)
-                                <a href="/pro/annonces/unchoose/{{ $annonce->id }}" class="btn btn-primary choisir" name="choisir" id="choisir"> <i class="fa fa-check-circle-o" aria-hidden="true"></i> se désister</a>
+                                <a href="/pro/annonces/unchoose/{{ $annonce->id }}" class="refuse" name="" id=""> <i class="fa fa-times-circle-o" aria-hidden="true"></i> se désister</a>
                             @elseif($annonce->statut == 2)
                                 <a href="#" class="btn btn-primary choisir" name="numdupro" id="numdupro">n° de la famille</a>
                             @endif

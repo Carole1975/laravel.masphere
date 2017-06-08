@@ -50,7 +50,7 @@
                                     <p class="card-text">Pendant : {{ $annonce->duree }}h</p>
                                     @if($annonce->statut == 1)
                                     <p> {{ $annonce->nbrEnfant }} Enfant(s)</p>
-                                        <a href="/statut/annonce/depost2/{{ $annonce->id }}" class="btn btn-primary choisir" name="annuler" id="annuler" style="color:red"> <i class="fa fa-circle-o" aria-hidden="true"></i> annuler</a>
+                                        <a href="/statut/annonce/depost2/{{ $annonce->id }}" class="btn btn-primary refuse" name="annuler" id="annuler"> <i class="fa fa-times-circle-o" aria-hidden="true"></i> annuler</a>
                                         <a href="/statut/annonce/post2/{{ $annonce->id }}" class="btn btn-primary choisir" name="valider" id="valider">valider le pro(en fonction du profil)</a>
                                         @endif
                                     @if($annonce->statut == 2)

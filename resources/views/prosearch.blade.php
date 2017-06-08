@@ -78,8 +78,7 @@
                         <h3 class="card-title">{{ $annonce->debut }}</h3>
                         <p class="card-text">Pendant : {{ $annonce->duree }}h</p><p> {{ $annonce->nbrEnfant }} Enfant(s)</p>
                         <div class="acceptornot">
-                            <a href="/pro/annonces/choose/{{ $annonce->id }}" class="btn btn-primary choisir" name="choisir" id="choisir"> <i class="fa fa-check-circle-o" aria-hidden="true"></i>
-                                Choisir</a>
+                            <a href="/pro/annonces/choose/{{ $annonce->id }}" class="btn btn-primary" name="choisir" id="choisir">Choisir</a>
                             </div>
                         </div>
                     </div>

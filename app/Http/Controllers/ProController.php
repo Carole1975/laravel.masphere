@@ -78,7 +78,7 @@ class ProController extends Controller
         $dispo->commentaire = $request->input('commentaire');
         $dispo->capacitegarde_max = $request->input('enfants');
         Auth::user()->dispos()->save($dispo);
-        return redirect()->route('pro');
+        return redirect()->route('dispoform');
     }
 
     public function getDispoToUpdate(Request $request, $id)

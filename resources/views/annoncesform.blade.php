@@ -99,13 +99,12 @@
                         @foreach ($annonces as $annonce)
                     <div class="card">
                         <div class="card-block">
-                            <a href="/family/annonce/update/{{ $annonce->id }}">Modifier</a>
+                            <a href="/family/annonce/update/{{ $annonce->id }}">Modifier</a> <span> | </span>      @if($annonce->statut == 0)
+                                <a href="/annonces/suppr/{{ $annonce->id }}" class="refuse" name="choisir" id="attente">Retirer l'annonce ?</a>
+                            @endif
                             <h3 class="card-title">{{ $annonce->debut }}</h3>
                             <p class="card-text">Pendant : {{ $annonce->duree }}h</p>
                             <p> {{ $annonce->nbrEnfant }} Enfant(s)</p>
-                            @if($annonce->statut == 0)
-                                <a href="/annonces/suppr/{{ $annonce->id }}" class="btn btn-primary refuse" name="choisir" id="attente">Retirer l'annonce ?</a>
-                                @endif
                         </div>
                     </div>
                         @endforeach
