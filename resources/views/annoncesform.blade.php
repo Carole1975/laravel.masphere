@@ -104,7 +104,7 @@
                             <p class="card-text">Pendant : {{ $annonce->duree }}h</p>
                             <p> {{ $annonce->nbrEnfant }} Enfant(s)</p>
                             @if($annonce->statut == 0)
-                                <a href="/annonces/suppr/{{ $annonce->id }}" class="btn btn-primary choisir" name="choisir" id="attente" style="color:red">Retirer l'annonce ?</a>
+                                <a href="/annonces/suppr/{{ $annonce->id }}" class="btn btn-primary refuse" name="choisir" id="attente">Retirer l'annonce ?</a>
                                 @endif
                         </div>
                     </div>
@@ -118,7 +118,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Ajouter une disponibilité</div>
+                <div class="panel-heading">Ajouter une disponiilité</div>
                 <div class="card">
                     <div class="card-block">
 

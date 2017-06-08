@@ -84,7 +84,7 @@ class StatutController extends Controller
     {
         // modif;
         $dispos = Dispo::all()->where('id', '=', $id)->first();
-        $dispos->statut = null;
+        $dispos->statut = 0;
         $dispos->save();
         $request->user()->dispos()->detach($id);
         Session::flash('flash_message', 'OKAAAAAAYYYYYY');

@@ -41,7 +41,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">J'ai été choisi</div>
+                <div class="panel-heading">J'ai été choisi par un pro</div>
                     @foreach ($annonces as $annonce)
                         @if($annonce->statut > 0)
                             <div class="card">
@@ -54,65 +54,12 @@
                                         <a href="/statut/annonce/post2/{{ $annonce->id }}" class="btn btn-primary choisir" name="valider" id="valider">valider le pro(en fonction du profil)</a>
                                         @endif
                                     @if($annonce->statut == 2)
-                                        <a href="#" class="btn btn-primary choisir" name="numdupro" id="numdupro">n° du pro</a>
+                                        <a href="#" class="btn btn-primary" style="background:transparent; color:green" name="numdupro" id="numdupro">n° du pro</a>
                                     @endif
                                 </div>
                             </div>
                             @endif
                     @endforeach
-
-
-                        {{-- <form class="form-horizontal" role="form" method="POST" action="{{ route('createAnnonce') }}">
-                            {{ csrf_field() }}
-
-                            <div class="form-group{{ $errors->has('annonceDebut') ? ' has-error' : '' }}">
-                                <label for="annonceDebut" class="col-md-4 control-label">Date et heure (YYYY-mm-dd HH:ii:ss)</label>
-
-                                <div class="col-md-6">
-                                    <input id="annonceDebut" type="date" class="form-control" name="annonceDebut" value="{{ old('annonceDebut') }}" required autofocus>
-
-                                    @if ($errors->has('annonceDebut'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('annonceDebut') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group{{ $errors->has('annonceDuree') ? ' has-error' : '' }}">
-                                <label for="annonceDuree" class="col-md-4 control-label">Durée</label>
-
-                                <div class="col-md-6">
-                                    <input id="annonceDuree" type="text" class="form-control" name="annonceDuree" value="{{ old('annonceDuree') }}" required autofocus>
-
-                                    @if ($errors->has('annonceDuree'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('annonceDuree') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group{{ $errors->has('annonceNbrEnfant') ? ' has-error' : '' }}">
-                                <label for="annonceNbrEnfant" class="col-md-4 control-label">Nombre d'enfant</label>
-
-                                <div class="col-md-6">
-                                    <input id="annonceNbrEnfant" type="text" class="form-control" name="annonceNbrEnfant" value="{{ old('annonceNbrEnfant') }}" required autofocus>
-
-                                    @if ($errors->has('annonceNbrEnfant'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('annonceNbrEnfant') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <button type="submit" class="btn btn-primary">
-                                Nouvelle annonce
-                            </button>
-
-                        </form> --}}
-
             </div>
         </div>
     </div>
@@ -123,7 +70,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                    <div class="panel-heading">Les dispos de pro que j'ai choisi</div>
+                    <div class="panel-heading">Les dispos de pro que j'ai choisies</div>
                         @foreach ($dispos as $dispo)
                         <div class="card">
                             <div class="card-block">
@@ -134,7 +81,7 @@
                                 @elseif($dispo->statut == 1)
                                 <a class="btn btn-primary" href='/statut/dispo/depost1/{{ $dispo->id }}'>annullllleeeerrrr</a>
                                 @elseif($dispo->statut == 2)
-                                <a class="btn btn-primary" href='#'>n° du pro</a>
+                                <a class="btn btn-primary" style="background:transparent; color:green" href='#'>n° du pro</a>
                                 @endif
                             </div>
                         </div>

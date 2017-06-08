@@ -271,10 +271,10 @@ textarea {
 }
 .choisir {
     /*background: #007f00;*/
-    background: none;
+    background: transparent;
     color: green;
     width: 100%;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .refuse {
