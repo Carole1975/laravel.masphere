@@ -70,4 +70,11 @@ class FamilyController extends Controller
         $annonce->update();
         return redirect()->route('family');
     }
+
+
+    public function annoncesform(Request $request)
+    {
+        $annonces = $request->user()->annonces;
+        return view('annoncesform', ['annonces'=>$annonces]);
+    }
 }

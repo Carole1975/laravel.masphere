@@ -28,7 +28,7 @@
         </a>
     </div>
     <div class="dispo-page">
-        <a class="linkmenu" href="#">
+        <a class="linkmenu" href="/family/annonce">
             <i class="fa fa-user fa-2x" aria-hidden="true"></i>
             <p class="textmenu">Mes annonces</p>
         </a>
@@ -41,35 +41,28 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Déposer un annonce</div>
-                <div class="card">
-                    <div class="card-block">
-
-                <div class="panel-body">
-                    You are logged in as Family!
-                </div>
-                <div>
-                    <h2>Mes annonces</h2>
+                <div class="panel-heading">J'ai été choisi</div>
                     @foreach ($annonces as $annonce)
-                    <div class="card">
-                        <div class="card-block">
-                            <h3 class="card-title">{{ $annonce->debut }}</h3>
-                            <p class="card-text">Pendant : {{ $annonce->duree }}h</p>
-                            <p> {{ $annonce->nbrEnfant }} Enfant(s)</p>
-                            @if($annonce->statut == 0)
-                                <a href="/annonces/suppr/{{ $annonce->id }}" class="btn btn-primary choisir" name="choisir" id="attente"> <i class="fa fa-circle-o" aria-hidden="true"></i> en attente, retirer ?</a>
-                            @elseif($annonce->statut == 1)
-                                <a href="/statut/annonce/depost2/{{ $annonce->id }}" class="btn btn-primary choisir" name="annuler" id="annuler"> <i class="fa fa-circle-o" aria-hidden="true"></i> annuler</a>
-                                <a href="/statut/annonce/post2/{{ $annonce->id }}" class="btn btn-primary choisir" name="valider" id="valider">valider le pro(en fonction du profil)</a>
-                            @elseif($annonce->statut == 2)
-                                <a href="#" class="btn btn-primary choisir" name="numdupro" id="numdupro">n° du pro</a>
+                        @if($annonce->statut > 0)
+                            <div class="card">
+                                <div class="card-block">
+                                    <h3 class="card-title">{{ $annonce->debut }}</h3>
+                                    <p class="card-text">Pendant : {{ $annonce->duree }}h</p>
+                                    @if($annonce->statut == 1)
+                                    <p> {{ $annonce->nbrEnfant }} Enfant(s)</p>
+                                        <a href="/statut/annonce/depost2/{{ $annonce->id }}" class="btn btn-primary choisir" name="annuler" id="annuler" style="color:red"> <i class="fa fa-circle-o" aria-hidden="true"></i> annuler</a>
+                                        <a href="/statut/annonce/post2/{{ $annonce->id }}" class="btn btn-primary choisir" name="valider" id="valider">valider le pro(en fonction du profil)</a>
+                                        @endif
+                                    @if($annonce->statut == 2)
+                                        <a href="#" class="btn btn-primary choisir" name="numdupro" id="numdupro">n° du pro</a>
+                                    @endif
+                                </div>
+                            </div>
                             @endif
-                        </div>
-                    </div>
                     @endforeach
 
 
-                        <form class="form-horizontal" role="form" method="POST" action="{{ route('createAnnonce') }}">
+                        {{-- <form class="form-horizontal" role="form" method="POST" action="{{ route('createAnnonce') }}">
                             {{ csrf_field() }}
 
                             <div class="form-group{{ $errors->has('annonceDebut') ? ' has-error' : '' }}">
@@ -118,10 +111,8 @@
                                 Nouvelle annonce
                             </button>
 
-                        </form>
+                        </form> --}}
 
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -132,7 +123,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                        <h2>les dispos de pro que j'ai choisi</h2>
+                    <div class="panel-heading">Les dispos de pro que j'ai choisi</div>
                         @foreach ($dispos as $dispo)
                         <div class="card">
                             <div class="card-block">

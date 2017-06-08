@@ -40,7 +40,7 @@
                             @elseif($annonce->statut == 2)
                                 <a href="#" class="btn btn-primary choisir" name="numdupro" id="numdupro">n° de la famille</a>
                             @endif
-                                
+
                             </div>
                         </div>
                     </div>
@@ -58,8 +58,7 @@
                                 @if($dispo->statut == 1)
                                     <a href="/statut/dispo/post2/{{ $dispo->id }}" class="btn btn-primary choisir" name="choisir" id="choisir"> <i class="fa fa-circle-o" aria-hidden="true"></i> accepter</a>
                                 @elseif($dispo->statut == 2)
-                                    <a href="/statut/dispo/depost2/{{ $dispo->id }}" class="btn btn-primary choisir" name="annuler" id="annuler"> <i class="fa fa-check-circle-o" aria-hidden="true"></i> annuler</a>
-                                    <a href="#" class="btn btn-primary choisir" name="annuler" id="annuler">n° de la famille</a>
+                                    <a href="/statut/dispo/depost2/{{ $dispo->id }}" class="btn btn-primary choisir col-xs-12" name="annuler" id="annuler" style="color:red"> <i class="fa fa-check-circle-o" aria-hidden="true"></i> annuler</a>
                                 @endif
                             </div>
                         </div>

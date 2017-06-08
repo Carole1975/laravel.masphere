@@ -99,5 +99,4 @@ class ProController extends Controller
         $dispos->update();
         return redirect()->route('dispoform');
     }
-
 }

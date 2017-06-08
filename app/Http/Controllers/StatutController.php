@@ -10,7 +10,6 @@ use App\User;
 use App\Dispo;
 use App\Annonce;
 
-
 class StatutController extends Controller
 {
     /**
@@ -85,7 +84,7 @@ class StatutController extends Controller
     {
         // modif;
         $dispos = Dispo::all()->where('id', '=', $id)->first();
-        $dispos->statut = NULL;
+        $dispos->statut = null;
         $dispos->save();
         $request->user()->dispos()->detach($id);
         Session::flash('flash_message', 'OKAAAAAAYYYYYY');
@@ -145,7 +144,7 @@ class StatutController extends Controller
         $request->user()->annonces()->attach($id);
         return redirect()->route('pro');
     }
-    
+
     /**
      * Update the specified resource in storage.
      *
